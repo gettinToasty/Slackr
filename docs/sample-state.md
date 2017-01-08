@@ -12,15 +12,29 @@
   channels: {
     1: {
       title: "#yeezus-lives",
-      author_id: 1
+      owner_id: 1,
+      messages: {
+        1: {
+          author_id: 1,
+          postable_id: 1,
+          postable_type: 'channel',
+          body: "i feel like pablo :kanye:"
+        }
+      }
     }
   },
-  messages: {
+  directMessages: {
     1: {
-      author_id: 1,
-      postable_id: 1,
-      postable_type: 'channel',
-      body: "i feel like pablo :kanye:"
+      to_id: 4,
+      from_id: 1,
+      messages: {
+        1: {
+          author_id: 1,
+          postable_id: 1,
+          postable_type: 'direct_message',
+          body: "sup homie"
+        }
+      }
     }
   }
 }

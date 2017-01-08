@@ -23,16 +23,13 @@
 
 - `GET /api/channels`
   - accepts `category` parameter for sorting
-- `POST /api/channels`
 - `GET /api/channels/:id`
-- `PATCH /api/channels/:id`
-- `DELETE /api/channels/:id`
 
 ### Messages
 
 - `GET /api/messages`
   - belongs to either a channel or a DM
-  - accepts `postable_id` as a param to display properly in channel or DM
+  - accepts `postable_id`  and `postable_type` as params to display properly in channel or DM
 - `POST /api/messages`
 - `GET /api/messages/:id`
 - `PATCH /api/messages/:id`

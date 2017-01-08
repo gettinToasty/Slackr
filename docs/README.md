@@ -3,22 +3,19 @@
 [Heroku link][heroku]
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://slackrapp.herokuapp.com/
 [trello]: https://trello.com/b/LaSHAumT/slackr
 
 ##MVP:
 
-Slackr is a group chat application for people who want to do anything but work, built on a Rails backend and a React/Redux frontend. It also uses the WebSockets API to enable live chatting between users. By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
+Slackr is a group chat application for people who want to do anything but work, built on a Rails backend and a React/Redux frontend. It also uses the socket.io library to enable live chatting between users. By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
-* Hosting on Heroku
-* Account creation and Guest logins
-* Live chat
-* Channels
-* Direct Message
-* Teams or multi-person DM
-* Bonus: Emoji Support
-* Bonus: Giphy Support
-* Bonus: Search Messages
+- [ ] Hosting on Heroku
+- [ ] Account creation and Guest logins
+- [ ] Live chat
+- [ ] Channels
+- [ ] Direct Message
+- [ ] Teams or multi-person DM
 
 ## Design Docs
 * [View Wireframes][wireframes]
