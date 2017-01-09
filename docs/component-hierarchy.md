@@ -2,11 +2,15 @@
 
 **SplashFormContainer**
   - Nav
+    + Hamburger
+    + SearchBar (hidden)
   - SplashForm
 
 **ChatWindowContainer**
   - ChatWindow  
     * Nav
+      + Hamburger
+      + SearchBar
     * Sidebar
       + ChannelDetail
       + ChannelIndex
@@ -17,10 +21,12 @@
 
 **ChannelListContainer**
   - ChannelList
+    * ChannelSearch
     * ChannelListItem
 
 **UserListContainer**
   - UserList
+    * UserSearch
     * UserItem
 
 ##Routes
