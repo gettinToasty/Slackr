@@ -1,6 +1,6 @@
 ```js
 {
-  
+
   currentUser: {
     id: 1,
     username: "toasty_is_da_best37"
@@ -18,33 +18,33 @@
     }
   },
 
+  curChannel: {
+    title: "#yeezus-lives",
+    ownerId: 1,
+    messages: {
+      1: {
+        authorId: 1,
+        body: "i feel like pablo :kanye:"
+      }
+    }
+    users: [ 1, 2, 4, 5, 7, 54 ]
+  }
+
   channels: {
     1: {
       title: "#yeezus-lives",
-      owner_id: 1,
-      messages: {
-        1: {
-          author_id: 1,
-          postable_id: 1,
-          postable_type: 'channel',
-          body: "i feel like pablo :kanye:"
-        }
-      }
+      ownerId: 1,
       users: [ 1, 2, 4, 5, 7, 54 ] //an array for user_ids for users who have joined the channel
     }
   },
 
-  directMessages: {
-    1: {
-      to_id: 4,
-      from_id: 1,
-      messages: {
-        1: {
-          author_id: 1,
-          postable_id: 1,
-          postable_type: 'direct_message',
-          body: "sup homie"
-        }
+  curDirectMessage: {
+    toId: 4,
+    fromId: 1,
+    messages: {
+      1: {
+        authorId: 1,
+        body: "sup homie"
       }
     }
   }
