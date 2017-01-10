@@ -48,5 +48,14 @@
     }
   }
 
+  directMessages {
+    dms: {
+      1: {
+        toId: 4
+      }
+    }
+    ids: [1, 2, 3] //array sorted by created_at
+  }
+
 }
 ```

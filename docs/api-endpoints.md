@@ -27,6 +27,7 @@
 
 ### Direct Messages
 
+- `GET /api/direct_messages`
 - `GET /api/direct_messages/:id`
 - `POST /api/direct_messages`
 - `DELETE /api/direct_messages`
