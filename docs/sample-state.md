@@ -9,7 +9,6 @@
   forms: {
     splashForm: {errors: []},
     createMessage: {errors: ["body can't be blank"]}
-    teamUsers: [1, 4, 63] //used to keep track of selected users to start a team chat with
   },
 
   users: {
