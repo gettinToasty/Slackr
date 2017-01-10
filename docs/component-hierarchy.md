@@ -1,16 +1,16 @@
 ##Component Hierarchy
 
-**SplashFormContainer**
+**Root**
   - Nav
     + Hamburger
-    + SearchBar (hidden)
+    + SearchBar (hidden on SplashForm)
+  - {children}
+
+**SplashFormContainer**  
   - SplashForm
 
 **ChatWindowContainer**
   - ChatWindow  
-    * Nav
-      + Hamburger
-      + SearchBar
     * Sidebar
       + ChannelDetail
       + ChannelIndex

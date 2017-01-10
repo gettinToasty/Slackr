@@ -25,6 +25,12 @@
   - accepts `category` parameter for sorting
 - `GET /api/channels/:id`
 
+### Direct Messages
+
+- `GET /api/direct_messages/:id`
+- `POST /api/direct_messages`
+- `DELETE /api/direct_messages`
+
 ### Messages
 
 - `GET /api/messages`
