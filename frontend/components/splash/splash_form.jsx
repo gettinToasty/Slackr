@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class SplashForm extends React.Component {
   constructor(props) {
@@ -8,6 +8,17 @@ class SplashForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateAttr = this.updateAttr.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
+    this.redirect = this.redirect.bind(this);
+  }
+
+  componentDidUpdate() {
+    // this.redirectIfLoggedIn();
+  }
+
+  redirectIfLoggedIn() {
+    if(this.props.loggedIn) {
+      this.redirect();
+    }
   }
 
   updateAttr(type, e) {
@@ -16,7 +27,12 @@ class SplashForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    this.props.processForm(this.state)
+      .then(() => this.redirect());
+  }
+
+  redirect() {
+    this.props.router.push('/');
   }
 
   guestLogin(e) {
@@ -54,4 +70,4 @@ class SplashForm extends React.Component {
   }
 }
 
-export default SplashForm;
+export default withRouter(SplashForm);
