@@ -14,7 +14,7 @@
   border-radius: 32px;
   z-index: 1;
   overflow: hidden;
-  box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: $shallow-shadow;
 
   h2 {
     margin-bottom: 8px;

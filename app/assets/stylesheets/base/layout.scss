@@ -16,6 +16,57 @@ div {
   height: 100%;
 }
 
+nav {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  background-color: $gray-purple;
+  padding: 16px;
+  width: 100%;
+  box-shadow: $shallow-shadow;
+
+  h1 {
+    display: block;
+  }
+
+  div {
+    display: block;
+    width: auto;
+    i {
+      color: white;
+    }
+    ul {
+      position: absolute;
+      width: 100px;
+      padding: 24px;
+      left: -140px;
+      border-radius: 16px 0 16px 16px;
+      background-color: white;
+      height: auto;
+      box-shadow: $shallow-shadow;
+      display: none;
+
+      li {
+        margin: 8px 0;
+      }
+
+      &:hover {
+        display: block;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      ul {
+        display: block;
+      }
+    }
+  }
+}
+
 h1, h2, h3 {
   font-family: $title;
   font-weight: 700;
@@ -23,11 +74,11 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 40px;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 32px;
 }
 
 p, label, input, a, li {
