@@ -9,48 +9,70 @@ nav {
   padding: 16px;
   width: 100%;
   box-shadow: $shallow-shadow;
+  height: 80px;
 
   h1 {
     display: block;
   }
 
+  input[type='text'] {
+    background-color: white;
+    width: 200px;
+    margin-right: 32px;
+  }
+
+  i {
+    color: white;
+  }
+
   div {
-    display: block;
+    display: flex;
+    align-items: center;
     width: auto;
+  }
+
+  label {
     i {
-      color: white;
-    }
-    ul {
       position: absolute;
-      box-sizing: border-box;
-      width: 160px;
-      padding: 0;
-      left: -152px;
-      border-radius: 16px 2px 16px 16px;
-      background-color: white;
-      max-height: 0;
-      display: block;
-      overflow: hidden;
-      transition: 0.5s;
+      color: $dark-purple;
+      top: 16px;
+      left: 200px;
+    }
+  }
+}
 
-      li {
-        padding: 16px;
-      }
+aside {
+  ul {
+    position: absolute;
+    box-sizing: border-box;
+    width: 160px;
+    padding: 0;
+    top: 50px;
+    left: 0px;
+    border-radius: 16px 2px 16px 16px;
+    background-color: white;
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    transition: 0.5s;
 
-      &:hover {
-        height: auto;
-        max-height: 1000px;
-        box-shadow: $shallow-shadow;
-      }
+    li {
+      padding: 16px;
     }
 
     &:hover {
-      cursor: pointer;
-      ul {
-        height: auto;
-        max-height: 1000px;
-        box-shadow: $shallow-shadow;
-      }
+      height: auto;
+      max-height: 1000px;
+      box-shadow: $shallow-shadow;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    ul {
+      height: auto;
+      max-height: 1000px;
+      box-shadow: $shallow-shadow;
     }
   }
 }

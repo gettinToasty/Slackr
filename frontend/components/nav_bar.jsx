@@ -40,12 +40,28 @@ class NavBar extends React.Component {
       return content;
     };
 
+    const searchBar = () => {
+      let content;
+      if (this.props.currentUser) {
+        content = (
+          <label>
+            <i className="fa fa-search" aria-hidden="true"></i>
+            <input type='text' />
+          </label>
+        );
+      }
+      return content;
+    };
+
     return (
       <nav>
         <h1>*slackr</h1>
         <div>
-          <i className="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
-          {ulContent()}
+          {searchBar()}
+          <aside>
+            <i className="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
+            {ulContent()}
+          </aside>
         </div>
       </nav>
     );
