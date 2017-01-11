@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110182244) do
+ActiveRecord::Schema.define(version: 20170111225235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "channel_joins", force: :cascade do |t|
+    t.integer  "channel_id", null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_channel_joins_on_channel_id", using: :btree
+    t.index ["user_id"], name: "index_channel_joins_on_user_id", using: :btree
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.integer  "owner_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_channels_on_owner_id", using: :btree
+  end
+
+  create_table "direct_messages", force: :cascade do |t|
+    t.integer  "to_id",      null: false
+    t.integer  "from_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["from_id"], name: "index_direct_messages_on_from_id", using: :btree
+    t.index ["to_id", "from_id"], name: "index_direct_messages_on_to_id_and_from_id", unique: true, using: :btree
+    t.index ["to_id"], name: "index_direct_messages_on_to_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "author_id",     null: false
+    t.text     "body",          null: false
+    t.string   "postable_type"
+    t.integer  "postable_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["postable_type", "postable_id"], name: "index_messages_on_postable_type_and_postable_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

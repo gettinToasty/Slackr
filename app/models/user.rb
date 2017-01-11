@@ -6,6 +6,12 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_many :owned_channels,
+    foreign_key: :owner_id,
+    class_name: :User
+
+  has_many :channels
+
   def self.find_by_credentials(username, pw)
     user = User.find_by(username: username)
     user && user.is_password?(pw) ? user : nil
