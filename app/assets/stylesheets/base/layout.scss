@@ -59,7 +59,7 @@ button, input[type='submit'] {
   }
   &:active {
     border: none;
-    border-top: 2px solid white;
+    margin-top: 10px;
   }
   &:focus {
     outline: none;
@@ -69,14 +69,29 @@ button, input[type='submit'] {
 input[type='text'], input[type='password'] {
   margin: 8px;
   min-width: 150px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid $gray-purple;
+  transition: 0.2s;
+
+  &:focus {
+    outline: none;
+    background-color: white;
+    border: 1px solid $dark-purple;
+  }
+
+  &:hover {
+    border: 1px solid $dark-purple;
+  }
 }
 
 a {
   border-bottom: 2px solid transparent;
   text-decoration: none;
-  color: $purple;
+  color: $dark-purple;
 
   &:hover {
-    border-bottom: 2px dotted $purple;
+    color: $purple;
   }
 }
