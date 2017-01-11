@@ -11,10 +11,6 @@ class SplashForm extends React.Component {
     this.redirect = this.redirect.bind(this);
   }
 
-  componentDidUpdate() {
-    // this.redirectIfLoggedIn();
-  }
-
   redirectIfLoggedIn() {
     if(this.props.loggedIn) {
       this.redirect();
@@ -28,7 +24,7 @@ class SplashForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
-      .then(() => this.redirect());
+      .then(this.redirect);
   }
 
   redirect() {
@@ -37,13 +33,24 @@ class SplashForm extends React.Component {
 
   guestLogin(e) {
     e.preventDefault();
+    const guest = { username: 'Guest', password: 'password' };
+    this.props.guestLogin(guest)
+      .then(this.redirect);
   }
 
   render() {
     let text = () => (
       this.props.formType === 'login' ?
-        { submit: 'Log In', link: '/signup', linkText: "Don't have an account? Sign up here" } :
-        { submit: 'Sign Up', link: '/login', linkText: "Already a member? Log in here" }
+        {
+          submit: 'Log In',
+          link: '/signup',
+          linkText: "Don't have an account? Sign up here"
+        } :
+        {
+          submit: 'Sign Up',
+          link: '/login',
+          linkText: "Already a member? Log in here"
+        }
     );
 
     const renderErrors = () => (

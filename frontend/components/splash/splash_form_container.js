@@ -14,7 +14,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   if(formType === 'login') {
     processForm = user => dispatch(login(user));
   }
-  return { formType, processForm };
+  return {
+    guestLogin: user => dispatch(login(user)),
+    formType,
+    processForm };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SplashForm);
