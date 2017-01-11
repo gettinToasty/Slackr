@@ -42,30 +42,43 @@ class SplashForm extends React.Component {
   render() {
     let text = () => (
       this.props.formType === 'login' ?
-        { submit: 'Log In', link: '/signup', linkText: 'Sign Up' } :
-        { submit: 'Sign Up', link: '/login', linkText: 'Log In' }
+        { submit: 'Log In', link: '/signup', linkText: "Don't have an account? Sign up here" } :
+        { submit: 'Sign Up', link: '/login', linkText: "Already a member? Log in here" }
+    );
+
+    const renderErrors = () => (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={i}>{error}</li>
+        ))}
+      </ul>
     );
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Username
-          <input
-            type='text'
-            onChange={this.updateAttr.bind(null,'username')}
-            value={this.state.username} />
-        </label>
-        <label>
-          Password
-          <input
-            type='password'
-            onChange={this.updateAttr.bind(null, 'password')}
-            value={this.state.password} />
-        </label>
-        <input type='submit' value={text().submit} />
-        <button type='button' onClick={this.guestLogin}>Demo</button>
-        <Link to={text().link}>{text().linkText}</Link>
-      </form>
+      <div className='splash-bg'>
+        <img src='/assets/background-img.jpg' />
+        <form onSubmit={this.handleSubmit} className='splash'>
+          <h2>{text().submit}</h2>
+          {renderErrors()}
+          <label>
+            Username
+            <input
+              type='text'
+              onChange={this.updateAttr.bind(null,'username')}
+              value={this.state.username} />
+          </label>
+          <label>
+            Password
+            <input
+              type='password'
+              onChange={this.updateAttr.bind(null, 'password')}
+              value={this.state.password} />
+          </label>
+          <input type='submit' value={text().submit} />
+          <button type='button' onClick={this.guestLogin}>Demo</button>
+          <Link to={text().link}>{text().linkText}</Link>
+        </form>
+      </div>
     );
   }
 }
