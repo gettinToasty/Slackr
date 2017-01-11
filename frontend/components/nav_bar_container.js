@@ -7,12 +7,8 @@ const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log(ownProps);
-  return ({
-  pageName: ownProps.location.pathname.slice(1),
+const mapDispatchToProps = (dispatch, ownProps) => ({
   logout: () => dispatch(logout())
 });
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

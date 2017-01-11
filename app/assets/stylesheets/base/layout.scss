@@ -40,28 +40,34 @@ nav {
     }
     ul {
       position: absolute;
-      width: 100px;
-      padding: 24px;
-      left: -140px;
-      border-radius: 16px 0 16px 16px;
+      box-sizing: border-box;
+      width: 160px;
+      padding: 0;
+      left: -152px;
+      border-radius: 16px 2px 16px 16px;
       background-color: white;
-      height: auto;
-      box-shadow: $shallow-shadow;
-      display: none;
+      max-height: 0;
+      display: block;
+      overflow: hidden;
+      transition: 0.5s;
 
       li {
-        margin: 8px 0;
+        padding: 16px;
       }
 
       &:hover {
-        display: block;
+        height: auto;
+        max-height: 1000px;
+        box-shadow: $shallow-shadow;
       }
     }
 
     &:hover {
       cursor: pointer;
       ul {
-        display: block;
+        height: auto;
+        max-height: 1000px;
+        box-shadow: $shallow-shadow;
       }
     }
   }

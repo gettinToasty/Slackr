@@ -20,7 +20,7 @@ class NavBar extends React.Component {
       if (this.props.currentUser) {
         content = (
           <ul>
-            <li>{this.props.currentUser.username}</li>
+            <li>Welcome, {this.props.currentUser.username}</li>
             <li>
               <button type='button' onClick={this.handleLogout}>
                 Logout
