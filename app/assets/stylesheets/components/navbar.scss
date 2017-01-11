@@ -48,31 +48,28 @@ aside {
     width: 160px;
     padding: 0;
     top: 50px;
-    left: 0px;
+    right: 2px;
     border-radius: 16px 2px 16px 16px;
     background-color: white;
     max-height: 0;
     display: block;
     overflow: hidden;
-    transition: 0.5s;
+    transition: 0.5s all linear;
 
     li {
       padding: 16px;
     }
 
-    &:hover {
-      height: auto;
-      max-height: 1000px;
-      box-shadow: $shallow-shadow;
-    }
   }
 
   &:hover {
     cursor: pointer;
-    ul {
-      height: auto;
-      max-height: 1000px;
-      box-shadow: $shallow-shadow;
-    }
   }
+
+}
+
+.visible {
+  height: auto;
+  max-height: 1000px;
+  box-shadow: $shallow-shadow;
 }
