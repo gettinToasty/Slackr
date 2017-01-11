@@ -56,7 +56,7 @@ class SplashForm extends React.Component {
 
     return (
       <div className='splash-bg'>
-        <img src='/assets/background-img.jpg' />
+        <img src='https://res.cloudinary.com/gettintoasty/image/upload/v1484111141/background-img_ig0iox.jpg' />
         <form onSubmit={this.handleSubmit} className='splash'>
           <h2>{text().submit}</h2>
           {renderErrors()}
