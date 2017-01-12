@@ -21,7 +21,7 @@ class ChatWindow extends React.Component {
 
   render() {
     return (
-      <div className='group'>
+      <div className='chat-window'>
         <Sidebar
           allChannels={this.props.allChannels}
           userChannels={this.props.userChannels}

@@ -1,0 +1,15 @@
+.text-entry {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  height: 80px;
+  background-color: $light-purple;
+  width: 80%;
+  margin-left: 20%;
+  padding: 16px;
+
+  input[type='text'] {
+    background-color: white;
+    width: 90%;
+  }
+}
