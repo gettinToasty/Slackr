@@ -8,15 +8,25 @@ class ChatElements extends React.Component {
     super(props);
   }
 
+  componentDidUpdate() {
+    const bottom = this.refs.messages.scrollHeight;
+    this.refs.messages.scrollTop = bottom;
+  }
+
+
+
   render() {
     return (
       <div>
-        <div>
+        <div className='messages' ref='messages'>
           {this.props.messages.map(message => (
             <ChatElement key={message.id} message={message} />
           ))}
         </div>
-        <TextEntry curChannel={this.props.curChannel} />
+        <TextEntry
+          curChannel={this.props.curChannel}
+          createMessage={this.props.createMessage}
+          currentUser={this.props.currentUser} />
       </div>
     );
   }

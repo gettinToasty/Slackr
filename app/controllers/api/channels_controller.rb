@@ -4,6 +4,6 @@ class Api::ChannelsController < ApplicationController
   end
 
   def show
-    @channel = Channel.find(params[:id])
+    @channel = Channel.includes(messages: [:author]).find(params[:id])
   end
 end

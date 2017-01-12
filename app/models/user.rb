@@ -16,6 +16,10 @@ class User < ApplicationRecord
     through: :channel_joins,
     source: :channel
 
+  has_many :messages,
+    foreign_key: :author_id,
+    class_name: :Message
+
   def self.find_by_credentials(username, pw)
     user = User.find_by(username: username)
     user && user.is_password?(pw) ? user : nil

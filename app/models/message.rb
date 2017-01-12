@@ -3,4 +3,8 @@ class Message < ApplicationRecord
 
   belongs_to :postable, polymorphic: true
 
+  belongs_to :author,
+    foreign_key: :author_id,
+    class_name: :User
+
 end

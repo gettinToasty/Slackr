@@ -1,13 +1,10 @@
 json.id @channel.id
 json.title @channel.title
 json.ownerId @channel.owner_id
-json.set! :messages do
+json.messages do
   @channel.messages.each do |message|
     json.set! message.id do
-      json.id message.id
-      json.body message.body
-      json.authorId message.author_id
-      json.timestap time_ago_in_words(message.created_at)
+      json.partial! '/api/messages/message', message: message
     end
   end
 end

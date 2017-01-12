@@ -41,5 +41,11 @@ messages = Message.create([
     author_id: 1,
     postable_type: 'Channel',
     postable_id: 1
+  },
+  {
+    body: 'yo realytalk when does his album drop',
+    author_id: 1,
+    postable_type: 'Channel',
+    postable_id: 1
   }
 ])
