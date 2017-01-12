@@ -11,3 +11,9 @@ export const getUserChannels = (channels, user) => (
     channel.users.includes(user)
   ))
 );
+
+export const getChannelMessages = (messages) => (
+  Object.keys(messages).map(id => (
+    messages[id]
+  ))
+);

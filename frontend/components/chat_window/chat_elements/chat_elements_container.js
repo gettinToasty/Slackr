@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import ChatElements from './chat_elements';
 import { createMessage, updateMessage, deleteMessage } from '../../../actions/message_actions';
+import { getChannelMessages } from '../../../reducers/selectors';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   curChannel: state.curChannel,
-  messages: state.curChannel.messages
+  messages: getChannelMessages(state.curChannel.messages)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -34,3 +34,12 @@ channel_joins = ChannelJoin.create([
     channel_id: 2
   }
 ])
+
+messages = Message.create([
+  {
+    body: 'i feel like pablo :kanye:',
+    author_id: 1,
+    postable_type: 'Channel',
+    postable_id: 1
+  }
+])

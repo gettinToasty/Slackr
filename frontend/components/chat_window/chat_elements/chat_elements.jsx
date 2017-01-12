@@ -11,7 +11,12 @@ class ChatElements extends React.Component {
   render() {
     return (
       <div>
-        <TextEntry />
+        <div>
+          {this.props.messages.map(message => (
+            <ChatElement key={message.id} message={message} />
+          ))}
+        </div>
+        <TextEntry curChannel={this.props.curChannel} />
       </div>
     );
   }

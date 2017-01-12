@@ -1,8 +1,15 @@
 json.id @channel.id
 json.title @channel.title
 json.ownerId @channel.owner_id
-json.messages @channel.messages do |message|
-  json.partial! '/api/messages/message', message: message
+json.set! :messages do
+  @channel.messages.each do |message|
+    json.set! message.id do
+      json.id message.id
+      json.body message.body
+      json.authorId message.author_id
+      json.timestap time_ago_in_words(message.created_at)
+    end
+  end
 end
 
 json.users do
