@@ -1,5 +1,9 @@
 import React from 'react';
 
-export default (props) => (
-  <div></div>
+export default ({channels}) => (
+  <ul>
+    {channels.map(channel => (
+      <li key={channel.id}>{channel.title}</li>
+    ))}
+  </ul>
 );

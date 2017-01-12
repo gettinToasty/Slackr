@@ -9,10 +9,14 @@ class ChatWindow extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchChannels();
+  }
+
   render() {
     return (
-      <div>
-        <Sidebar />
+      <div className='group'>
+        <Sidebar channels={this.props.channels} />
         <ChatElementsContainer />
       </div>
     );

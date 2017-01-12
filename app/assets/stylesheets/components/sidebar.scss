@@ -1,0 +1,15 @@
+.sidebar {
+  position: absolute;
+  box-sizing: border-box;
+  width: 240px;
+  background-color: $gray-purple;
+  min-height: 100vh;
+  height: 100%;
+  float: left;
+  padding-top: 104px;
+  padding-left: 24px;
+
+  li {
+    color: white;
+  }
+}

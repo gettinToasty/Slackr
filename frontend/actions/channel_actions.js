@@ -18,6 +18,8 @@ export const fetchChannels = () => dispatch => (
     .then(resp => dispatch(receiveChannels(resp)))
 );
 
+window.fetchChannels = fetchChannels;
+
 export const fetchChannel = id => dispatch => (
   ChannelUtil.fetchChannel(id)
     .then(resp => dispatch(receiveChannel(resp)))
