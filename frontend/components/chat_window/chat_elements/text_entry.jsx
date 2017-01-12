@@ -18,7 +18,7 @@ class TextEntry extends React.Component {
       let message = {
         body: this.state.body,
         author_id: this.props.currentUser.id,
-        postable_type: 'Channel',
+        postable_type: this.props.curChannel.type,
         postable_id: this.props.curChannel.id
       };
       this.props.createMessage(message)
