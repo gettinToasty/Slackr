@@ -2,12 +2,13 @@ import { connect } from 'react-redux';
 
 import ChatWindow from './chat_window';
 import { fetchChannels, fetchChannel } from '../../actions/channel_actions';
-import { getChannelIndex } from '../../reducers/selectors';
+import { getAllChannels, getUserChannels } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
-  channels: getChannelIndex(state.channels),
+  allChannels: getAllChannels(state.channels),
   curChannel: state.curChannel,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  userChannels: getUserChannels(state.channels, state.session.currentUser.id)
 });
 
 const mapDispatchToProps = dispatch => ({

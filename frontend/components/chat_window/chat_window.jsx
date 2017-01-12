@@ -12,7 +12,7 @@ class ChatWindow extends React.Component {
 
   componentDidMount() {
     this.props.fetchChannels()
-      .then(() => this.props.fetchChannel(this.props.channels[0].id));
+      .then(() => this.props.fetchChannel(this.props.userChannels[0].id));
   }
 
   updateChannel(id) {
@@ -23,7 +23,8 @@ class ChatWindow extends React.Component {
     return (
       <div className='group'>
         <Sidebar
-          channels={this.props.channels}
+          allChannels={this.props.allChannels}
+          userChannels={this.props.userChannels}
           updateChannel={this.updateChannel}
           curChannel={this.props.curChannel}
           currentUser={this.props.currentUser} />
