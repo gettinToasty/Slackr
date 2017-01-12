@@ -1,0 +1,42 @@
+class Api::MessagesController < ApplicationController
+  def show
+    @message = Message.find(params[:id])
+  end
+
+  def index
+    @messages = Message
+      .where(postable_type: params[:postable_type])
+      .find_by(postable_id: params[:postable_id])
+  end
+
+  def create
+    @message = Message.new(message_params)
+    @message.user_id = current_user.id
+    if @message.save
+      render :show
+    else
+      render json: @message.errors.full_messages, status: 422
+    end
+  end
+
+  def update
+    @message = Message.find(params[:id])
+    if @message.update(message_params)
+      render :show
+    else
+      render json: @message.errors.full_messages, status: 422
+    end
+  end
+
+  def delete
+    @message = Message.find(params[:id])
+    @message.destroy
+    render json: @message
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:body, :channel_id)
+  end
+end

@@ -24,6 +24,7 @@
       1: {
         authorId: 1,
         body: "i feel like pablo :kanye:"
+        timestamp: "less than a minute ago"
       }
     }
     users: [ 1, 2, 4, 5, 7, 54 ]
