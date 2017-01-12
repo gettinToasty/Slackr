@@ -5,7 +5,11 @@ class Channel < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :User
 
-  has_many :users
+  has_many :channel_joins, dependent: :destroy
+
+  has_many :users,
+    through: :channel_joins,
+    source: :user
 
   has_many :messages, as: :postable
 end

@@ -8,3 +8,29 @@
 
 
 User.create(username: 'Guest', password: 'password')
+
+channels = Channel.create([
+  {
+    title: 'yeezus-lives',
+    owner_id: 1
+  },
+  {
+    title: 'dankmemes',
+    owner_id: 1
+  },
+  {
+    title: 'real-actual-work',
+    owner_id: 1
+  }
+])
+
+channel_joins = ChannelJoin.create([
+  {
+    user_id: 1,
+    channel_id: 1
+  },
+  {
+    user_id: 1,
+    channel_id: 2
+  }
+])

@@ -10,7 +10,11 @@ class User < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :User
 
-  has_many :channels
+  has_many :channel_joins, dependent: :destroy
+
+  has_many :channels,
+    through: :channel_joins,
+    source: :channel
 
   def self.find_by_credentials(username, pw)
     user = User.find_by(username: username)
