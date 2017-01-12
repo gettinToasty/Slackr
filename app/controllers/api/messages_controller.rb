@@ -31,7 +31,7 @@ class Api::MessagesController < ApplicationController
   def delete
     @message = Message.find(params[:id])
     @message.destroy
-    render json: @message
+    render :show
   end
 
   private

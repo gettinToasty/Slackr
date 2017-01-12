@@ -3,7 +3,7 @@ import React from 'react';
 const channelData = (curChannel) => {
   if(curChannel) {
     return (
-      <h4>{curChannel.title} ({curChannel.users})</h4>
+      <h4>{curChannel.title}</h4>
     );
   }
 };
