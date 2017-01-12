@@ -7,5 +7,6 @@ export default ({channels}) => (
   <div className='sidebar'>
     <h3>Channel Index</h3>
     <ChannelIndex channels={channels} />
+    <h3>Direct Messages</h3>
   </div>
 );
