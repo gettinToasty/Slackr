@@ -5,4 +5,6 @@ json.messages @channel.messages do |message|
   json.partial! '/api/messages/message', message: message
 end
 
-json.users channel.users, :id
+json.users do
+  json.array! channel.users.pluck :id
+end

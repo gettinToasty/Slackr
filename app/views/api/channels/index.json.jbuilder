@@ -3,6 +3,8 @@
     json.id channel.id
     json.title channel.title
     json.ownerId channel.owner_id
-    json.users channel.users, :id
+    json.users do
+      json.array! channel.users.pluck :id
+    end
   end
 end
