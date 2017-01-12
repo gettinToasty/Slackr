@@ -1,5 +1,5 @@
 .sidebar {
-  position: absolute;
+  position: relative;
   box-sizing: border-box;
   width: 240px;
   background-color: $gray-purple;
@@ -7,25 +7,56 @@
   height: 100%;
   float: left;
   padding-top: 104px;
-  padding-left: 24px;
   z-index: 1;
 
   h3 {
     text-transform: uppercase;
     font-size: 12px;
     color: $light-purple;
-  }
-
-  ul {
-    margin-bottom: 32px;
-  }
-
-  li {
-    color: $light-purple;
-    margin: 8px 4px;
+    margin-bottom: 8px;
+    padding-left: 24px;
     &:hover {
       color: white;
       cursor: pointer;
     }
+  }
+
+  ul {
+    margin-bottom: 32px;
+    padding-left: 24px;
+  }
+
+  li {
+    color: $light-purple;
+    padding: 4px;
+    border-radius: 4px 0 0 4px;
+    &:hover {
+      background-color: $darker-purple;
+      cursor: pointer;
+    }
+  }
+}
+
+.channel-detail {
+  box-sizing: border-box;
+  height: auto;
+  width: auto;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid $transparent-purple;
+  padding-left: 24px;
+
+  h4 {
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: $light-purple;
+  }
+
+  i {
+    float: left;
+    color: $light-purple;
+    margin-right: 8px;
   }
 }

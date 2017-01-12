@@ -6,5 +6,5 @@ json.messages @channel.messages do |message|
 end
 
 json.users do
-  json.array! channel.users.pluck :id
+  json.array! @channel.users.pluck :id
 end
