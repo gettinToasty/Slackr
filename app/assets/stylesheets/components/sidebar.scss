@@ -6,15 +6,15 @@
   min-height: 100vh;
   height: 100%;
   float: left;
-  padding-top: 104px;
   z-index: 1;
+  padding: 24px;
+  padding-top: 104px;
 
   h3 {
     text-transform: uppercase;
     font-size: 12px;
     color: $light-purple;
     margin-bottom: 8px;
-    padding-left: 24px;
     &:hover {
       color: white;
       cursor: pointer;
@@ -23,13 +23,12 @@
 
   ul {
     margin-bottom: 32px;
-    padding-left: 24px;
   }
 
   li {
     color: $light-purple;
     padding: 4px;
-    border-radius: 4px 0 0 4px;
+    border-radius: 4px;
     &:hover {
       background-color: $darker-purple;
       cursor: pointer;
@@ -44,7 +43,6 @@
   padding-bottom: 24px;
   margin-bottom: 32px;
   border-bottom: 1px solid $transparent-purple;
-  padding-left: 24px;
 
   h4 {
     margin-bottom: 8px;
