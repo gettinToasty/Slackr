@@ -38,21 +38,11 @@
     }
   },
 
-  curDirectMessage: {
-    toId: 4,
-    fromId: 1,
-    messages: {
-      1: {
-        authorId: 1,
-        body: "sup homie"
-      }
-    }
-  }
-
   directMessages {
     dms: {
       1: {
-        toId: 4
+        to: 'toastyBot',
+        from: 'toasty_is_da_best37'
       }
     }
     ids: [1, 2, 3] //array sorted by created_at

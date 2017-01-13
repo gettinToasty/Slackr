@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :channels, only: [:show, :index]
     resources :messages, except: [:new, :edit]
+    resources :direct_messages, except: [:new, :edit, :update]
   end
 
   root to: 'static_pages#root'
