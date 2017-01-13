@@ -11,7 +11,6 @@ export default (state = defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CHANNEL:
-      console.log(action);
       return merge({}, action.curChannel, defaultState);
     case RECEIVE_MESSAGE:
       return merge(
