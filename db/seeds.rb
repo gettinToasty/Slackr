@@ -8,6 +8,7 @@
 
 
 User.create(username: 'Guest', password: 'password')
+User.create(username: 'toastyBot', password: SecureRandom.urlsafe_base64(16))
 
 channels = Channel.create([
   {
@@ -35,6 +36,13 @@ channel_joins = ChannelJoin.create([
   }
 ])
 
+direct_messages = DirectMessage.create([
+  {
+    to_id: 1,
+    from_id: 2
+  }
+])
+
 messages = Message.create([
   {
     body: 'i feel like pablo :kanye:',
@@ -44,6 +52,18 @@ messages = Message.create([
   },
   {
     body: 'yo realytalk when does his album drop',
+    author_id: 1,
+    postable_type: 'Channel',
+    postable_id: 1
+  },
+  {
+    body: "'realytalk'",
+    author_id: 2,
+    postable_type: 'Channel',
+    postable_id: 1
+  },
+  {
+    body: 'shutup ;_;'
     author_id: 1,
     postable_type: 'Channel',
     postable_id: 1
