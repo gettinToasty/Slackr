@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default ({ message }) => (
-  <div className='chat-message'>
+  <div className='chat-message group'>
     <h4>{message.author}</h4>
     <p>{message.body}</p>
     <h5>Posted {message.timestamp} ago</h5>

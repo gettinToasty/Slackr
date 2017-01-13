@@ -95,3 +95,9 @@ a {
     color: $purple;
   }
 }
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

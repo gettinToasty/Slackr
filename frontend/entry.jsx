@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 
 import configureStore from './store/store.js';
 import Root from './components/root.jsx';
@@ -12,7 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  //TODO: remove store from window
   window.store = store;
+
+  Modal.setAppElement(document.body);
+
   ReactDOM.render(
     <Root store={ store } />,
     document.getElementById('root')
