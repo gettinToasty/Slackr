@@ -12,6 +12,12 @@ export const getUserChannels = (channels, user) => (
   ))
 );
 
+export const getUserMessages = dms => (
+  Object.keys(dms).map(id => (
+    dms[id]
+  ))
+);
+
 export const getChannelMessages = (messages) => {
   console.log(messages);
   return (

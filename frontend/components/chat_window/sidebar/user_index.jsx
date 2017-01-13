@@ -1,16 +1,16 @@
 import React from 'react';
 
 export default ({userMessages, updateChannel, currentUser}) => {
-  const title = () => {
-    
+  const title = (dm) => {
+    return dm.from === currentUser.username ? dm.to : dm.from;
   };
 
 
   return (
     <ul>
-      {userMessages.map(message => (
-        <li key={message.id} onClick={() => updateChannel(message.id)}>
-          *{message.title}
+      {userMessages.map(dm => (
+        <li key={dm.id} onClick={() => updateChannel(dm.id)}>
+          @{title(dm)}
         </li>
       ))}
     </ul>

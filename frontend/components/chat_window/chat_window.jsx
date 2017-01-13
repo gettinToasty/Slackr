@@ -12,6 +12,7 @@ class ChatWindow extends React.Component {
 
   componentDidMount() {
     this.props.fetchChannels()
+      .then(this.props.fetchDms)
       .then(() => this.props.fetchChannel(this.props.userChannels[0].id));
   }
 
@@ -27,7 +28,8 @@ class ChatWindow extends React.Component {
           userChannels={this.props.userChannels}
           updateChannel={this.updateChannel}
           curChannel={this.props.curChannel}
-          currentUser={this.props.currentUser} />
+          currentUser={this.props.currentUser}
+          userMessages={this.props.userMessages} />
         <ChatElementsContainer />
       </div>
     );
