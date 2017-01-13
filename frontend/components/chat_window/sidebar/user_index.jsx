@@ -9,7 +9,7 @@ export default ({userMessages, updateChannel, currentUser}) => {
   return (
     <ul>
       {userMessages.map(dm => (
-        <li key={dm.id} onClick={() => updateChannel(dm.id)}>
+        <li key={dm.id} onClick={() => updateChannel(dm.id, 'DirectMessage')}>
           @{title(dm)}
         </li>
       ))}

@@ -1,4 +1,5 @@
 import * as ChannelUtil from '../util/channel_api_util';
+import * as DmUtil from '../util/dm_api_util';
 
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
@@ -18,7 +19,17 @@ export const fetchChannels = () => dispatch => (
     .then(resp => dispatch(receiveChannels(resp)))
 );
 
-export const fetchChannel = id => dispatch => (
-  ChannelUtil.fetchChannel(id)
-    .then(resp => dispatch(receiveChannel(resp)))
-);
+export const fetchChannel = (id, type) => dispatch => {
+  if(type === 'Channel') {
+    return (
+      ChannelUtil.fetchChannel(id)
+      .then(resp => dispatch(receiveChannel(resp)))
+    );
+  } else if(type === 'DirectMessage') {
+    return (
+      DmUtil.fetchDm(id)
+        .then(resp => dispatch(receiveChannel(resp)))
+    );
+  }
+
+};

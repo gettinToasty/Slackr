@@ -13,11 +13,11 @@ class ChatWindow extends React.Component {
   componentDidMount() {
     this.props.fetchChannels()
       .then(this.props.fetchDms)
-      .then(() => this.props.fetchChannel(this.props.userChannels[0].id));
+      .then(() => this.props.fetchChannel(this.props.userChannels[0].id, 'Channel'));
   }
 
-  updateChannel(id) {
-    this.props.fetchChannel(id);
+  updateChannel(id, type) {
+    this.props.fetchChannel(id, type);
   }
 
   render() {
