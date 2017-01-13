@@ -7,65 +7,73 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(username: 'Guest', password: 'password')
-User.create(username: 'toastyBot', password: SecureRandom.urlsafe_base64(16))
+User.create!(username: 'Guest', password: 'password')
+User.create!(username: 'toastyBot', password: SecureRandom.urlsafe_base64(16))
 
-channels = Channel.create([
+channels = Channel.create!([
   {
     title: 'yeezus-lives',
-    owner_id: 1
+    owner: User.find_by(username: 'toastyBot')
   },
   {
     title: 'dankmemes',
-    owner_id: 1
+    owner: User.find_by(username: 'toastyBot')
+  },
+  {
+    title: 'wholesome-memes',
+    owner: User.find_by(username: 'toastyBot')
+  },
+  {
+    title: 'cat-pictures',
+    owner: User.find_by(username: 'toastyBot')
   },
   {
     title: 'real-actual-work',
-    owner_id: 1
+    owner: User.find_by(username: 'toastyBot')
   }
 ])
 
-channel_joins = ChannelJoin.create([
+channel_joins = ChannelJoin.create!([
   {
-    user_id: 1,
-    channel_id: 1
+    user: User.find_by(username: 'Guest'),
+    channel: Channel.find_by(title: 'yeezus-lives')
   },
   {
-    user_id: 1,
-    channel_id: 2
+    user: User.find_by(username: 'Guest'),
+    channel: Channel.find_by(title: 'dankmemes')
   }
 ])
 
-direct_messages = DirectMessage.create([
+direct_messages = DirectMessage.create!([
   {
-    to_id: 1,
-    from_id: 2
+    sender: User.find_by(username: 'Guest'),
+    receiver: User.find_by(username: 'toastyBot')
   }
 ])
 
-messages = Message.create([
+messages = Message.create!([
   {
     body: 'i feel like pablo :kanye:',
-    author_id: 1,
+    author: User.find_by(username: 'Guest'),
     postable_type: 'Channel',
-    postable_id: 1
+    postable_id: Channel.find_by(title: 'yeezus-lives').id
   },
   {
     body: 'yo realytalk when does his album drop',
-    author_id: 1,
+    author: User.find_by(username: 'Guest'),
     postable_type: 'Channel',
-    postable_id: 1
+    postable_id: Channel.find_by(title: 'yeezus-lives').id
   },
   {
     body: "'realytalk'",
-    author_id: 2,
+    author: User.find_by(username: 'toastyBot'),
     postable_type: 'Channel',
-    postable_id: 1
+    postable_id: Channel.find_by(title: 'yeezus-lives').id
   },
   {
-    body: 'shutup ;_;'
-    author_id: 1,
+    body: 'shutup ;_;',
+    author: User.find_by(username: 'Guest'),
     postable_type: 'Channel',
-    postable_id: 1
+    postable_id: Channel.find_by(title: 'yeezus-lives').id
   }
 ])
