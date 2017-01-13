@@ -1,8 +1,11 @@
+.chat-window {
+  display: flex;
+}
+
 .messages {
   box-sizing: border-box;
   background-color: $light-purple;
-  margin-left: 20%;
-  width: 80%;
+  width: 100%;
   padding: 104px 32px 80px 32px;
   overflow: auto;
 }

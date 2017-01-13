@@ -1,7 +1,7 @@
 .sidebar {
   position: relative;
   box-sizing: border-box;
-  width: 20%;
+  flex: 0 0 240px;
   background-color: $gray-purple;
   min-height: 100vh;
   height: 100%;

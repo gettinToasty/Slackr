@@ -31,11 +31,24 @@ class TextEntry extends React.Component {
   }
 
   render() {
+    const placeholderText = () => {
+      let content;
+      if(this.props.curChannel.title) {
+        content = `*${this.props.curChannel.title}`;
+      } else {
+        content =
+          this.props.curChannel.from === this.props.currentUser.username ?
+            `@${this.props.curChannel.to}` :
+            `@${this.props.curChannel.from}`;
+      }
+      return content;
+    };
+
     return (
       <div className='text-entry'>
         <input
           type='text'
-          placeholder={`Message *${this.props.curChannel.title}`}
+          placeholder={`Message ${placeholderText()}`}
           value={this.state.body}
           onChange={this.updateBody}
           onKeyUp={this.handleSubmit} />
