@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+User.create!(username: 'toasty', password: 'password123456')
 User.create!(username: 'Guest', password: 'password')
 User.create!(username: 'toastyBot', password: SecureRandom.urlsafe_base64(16))
 User.create!(username: 'daWOZman', password: SecureRandom.urlsafe_base64(16))
@@ -57,6 +58,10 @@ channels = Channel.create!([
 channel_joins = ChannelJoin.create!([
   {
     user: User.find_by(username: 'Guest'),
+    channel: Channel.find_by(title: 'yeezus-lives')
+  },
+  {
+    user: User.find_by(username: 'toasty'),
     channel: Channel.find_by(title: 'yeezus-lives')
   },
   {
