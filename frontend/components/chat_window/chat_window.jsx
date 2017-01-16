@@ -11,6 +11,10 @@ class ChatWindow extends React.Component {
     this.updateChannel = this.updateChannel.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
+
   updateChannel(id, type) {
     const title = () => {
       if(this.props.curChannel.title) {
@@ -35,7 +39,8 @@ class ChatWindow extends React.Component {
           userMessages={this.props.userMessages}
           joinChannel={this.props.joinChannel}
           leaveChannel={this.props.leaveChannel}
-          fetchChannels={this.props.fetchChannels} />
+          fetchChannels={this.props.fetchChannels}
+          users={this.props.users} />
         <ChatElementsContainer />
       </div>
     );
