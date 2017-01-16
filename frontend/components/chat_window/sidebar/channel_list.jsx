@@ -10,9 +10,14 @@ class ChannelList extends React.Component {
   render() {
     return (
       <div>
+        <h2>Channels</h2>
         <input type='text' />
         <ul>
-          <ChannelListItem />
+          {
+            this.props.channels.map(channel => (
+              <ChannelListItem channel={channel} key={channel.id} />
+            ))
+          }
         </ul>
       </div>
     );

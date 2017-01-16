@@ -1,10 +1,11 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-import modalStyle from './modal_style';
-
 import ChannelDetail from './channel_detail';
+
 import ChannelIndex from './channel_index';
+import ChannelList from './channel_list';
+
 import UserIndex from './user_index';
 
 class Sidebar extends React.Component {
@@ -21,7 +22,7 @@ class Sidebar extends React.Component {
   render() {
     const decideModal = () => {
       if (this.state.modalType === 'channelList') {
-        return <h1>channelList</h1>;
+        return <ChannelList channels={this.props.allChannels} />;
       } else {
         return <h1>dmList</h1>;
       }
@@ -29,23 +30,29 @@ class Sidebar extends React.Component {
 
     return (
       <div className='sidebar'>
-        {/*<Modal
+        <Modal
           isOpen={this.state.openModal}
           contentLabel='Modal'
           onRequestClose={() => this.toggleModal(this.state.modalType)}
-          style={modalStyle}>
+          className='modal-content'
+          overlayClassName='modal-overlay'>
           {decideModal()}
-        </Modal>*/}
+        </Modal>
+
         <ChannelDetail
           curChannel={this.props.curChannel}
           currentUser={this.props.currentUser} />
+
         <h3 onClick={() => this.toggleModal('channelList')}>
           Channels ({this.props.allChannels.length})
         </h3>
         <ChannelIndex
           userChannels={this.props.userChannels}
           updateChannel={this.props.updateChannel} />
-        <h3>Direct Messages</h3>
+
+        <h3 onClick={() => this.toggleModal('dmList')}>
+          Direct Messages
+        </h3>
         <UserIndex
           userMessages={this.props.userMessages}
           updateChannel={this.props.updateChannel}
