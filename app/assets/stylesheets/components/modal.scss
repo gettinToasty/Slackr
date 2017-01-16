@@ -8,15 +8,46 @@
   left: 50%;
   right: auto;
   bottom: auto;
-  height: 300px;
+  height: 500px;
   width: 500px;
   transform: translate(-50%, -25%);
   background-color: white;
   transition: 0.2s;
   outline: none;
   padding: 64px;
+  border-radius: 16px;
+  border: 1px solid $transparent-dark-purple;
+
+  ul {
+    height: 436px;
+    overflow: auto;
+  }
+
   h2 {
     color: black;
+  }
+
+  li {
+    padding: 16px;
+    border: 1px solid $transparent-gray-purple;
+    border-radius: 4px;
+    margin: 8px;
+    transition: 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $transparent-dark-purple;
+    }
+
+    &:active {
+      background-color: $dark-purple;
+    }
+  }
+
+  p {
+    font-size: 12px;
+    float: right;
+    color: $gray-purple;
   }
 }
 

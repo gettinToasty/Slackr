@@ -10,7 +10,7 @@ class ChannelList extends React.Component {
   render() {
     return (
       <div>
-        <h2>Channels</h2>
+        <h2>Browse All {this.props.channels.length} Channels</h2>
         <input type='text' />
         <ul>
           {
