@@ -32,10 +32,10 @@ class TextEntry extends React.Component {
 
   render() {
     const placeholderText = () => {
-      let content;
+      let content = 'channel';
       if(this.props.curChannel.title) {
         content = `*${this.props.curChannel.title}`;
-      } else if(this.props.curChannel) {
+      } else if(this.props.curChannel.from) {
         content =
           this.props.curChannel.from === this.props.currentUser.username ?
             `@${this.props.curChannel.to}` :
