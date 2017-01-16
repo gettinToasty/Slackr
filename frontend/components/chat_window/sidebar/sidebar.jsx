@@ -8,6 +8,8 @@ import ChannelList from './channel_list';
 
 import UserIndex from './user_index';
 
+import { fetchChannelJoin } from '../../../util/channel_api_util';
+
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -28,8 +30,12 @@ class Sidebar extends React.Component {
       .then(() => this.toggleModal(this.state.modalType));
   }
 
-  leaveChannel(id) {
-
+  leaveChannel(channelId) {
+    //find channelJoin using channelId and currentUser.id
+    fetchChannelJoin(this.props.currentUser.id, channelId)
+      .then(resp => this.props.leaveChannel(resp.id))
+      .then(this.props.fetchChannels)
+      .then(() => this.props.updateChannel(this.props.userChannels[0].id, 'Channel'));
   }
 
   render() {
@@ -63,7 +69,8 @@ class Sidebar extends React.Component {
         </h3>
         <ChannelIndex
           userChannels={this.props.userChannels}
-          updateChannel={this.props.updateChannel} />
+          updateChannel={this.props.updateChannel}
+          leaveChannel={this.leaveChannel} />
 
         <h3 onClick={() => this.toggleModal('dmList')}>
           Direct Messages

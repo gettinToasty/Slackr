@@ -38,9 +38,10 @@
         display: block;
       }
     }
-
-    i {
+    div {
       float: right;
+    }
+    i {
       color: $gray-purple;
       display: none;
       &:hover {

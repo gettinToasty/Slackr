@@ -56,6 +56,7 @@ const mapDispatchToProps = dispatch => ({
   fetchChannels: () => dispatch(fetchChannels()),
   fetchChannel: (id, type) => dispatch(fetchChannel(id, type)),
   joinChannel: channelJoin => dispatch(joinChannel(channelJoin)),
+  leaveChannel: id => dispatch(leaveChannel(id)),
   fetchDms: () => dispatch(fetchDms()),
   setSocket: channelName => setSocket(channelName, dispatch)
 });

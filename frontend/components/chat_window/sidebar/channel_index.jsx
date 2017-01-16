@@ -1,21 +1,23 @@
 import React from 'react';
 
-const mapChannels = (userChannels, updateChannel) => {
+const mapChannels = (userChannels, updateChannel, leaveChannel) => {
   if(userChannels) {
     return userChannels.map(channel => (
       <li key={channel.id} onClick={() => updateChannel(channel.id, 'Channel')}>
         *{channel.title}
-        <i
-          className="fa fa-times-circle"
-          aria-hidden="true">
-        </i>
+        <div onClick={() => leaveChannel(channel.id)}>
+          <i
+            className="fa fa-times-circle"
+            aria-hidden="true">
+          </i>
+        </div>
       </li>
     ));
   }
 };
 
-export default ({userChannels, updateChannel}) => (
+export default ({userChannels, updateChannel, leaveChannel}) => (
   <ul>
-    {mapChannels(userChannels, updateChannel)}
+    {mapChannels(userChannels, updateChannel, leaveChannel)}
   </ul>
 );

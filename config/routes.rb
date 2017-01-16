@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :channels, only: [:show, :index]
     resources :messages, except: [:new, :edit]
     resources :direct_messages, except: [:new, :edit, :update]
-    resources :channel_joins, only: [:create, :destroy]
+    resources :channel_joins, only: [:create, :destroy, :index]
   end
 
   root to: 'static_pages#root'

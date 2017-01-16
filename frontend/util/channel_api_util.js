@@ -26,3 +26,11 @@ export const leaveChannel = id => (
     url: `api/channel_joins/${id}`
   })
 );
+
+export const fetchChannelJoin = (userId, channelId) => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/channel_joins',
+    data: { user_id: userId, channel_id: channelId }
+  })
+);
