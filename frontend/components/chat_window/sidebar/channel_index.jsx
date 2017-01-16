@@ -1,11 +1,17 @@
 import React from 'react';
 
-export default ({userChannels, updateChannel}) => (
-  <ul>
-    {userChannels.map(channel => (
+const mapChannels = (userChannels, updateChannel) => {
+  if(userChannels) {
+    return userChannels.map(channel => (
       <li key={channel.id} onClick={() => updateChannel(channel.id, 'Channel')}>
         *{channel.title}
       </li>
-    ))}
+    ));
+  }
+};
+
+export default ({userChannels, updateChannel}) => (
+  <ul>
+    {mapChannels(userChannels, updateChannel)}
   </ul>
 );

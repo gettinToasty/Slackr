@@ -2,7 +2,9 @@ import React from 'react';
 
 export default ({userMessages, updateChannel, currentUser}) => {
   const title = (dm) => {
-    return dm.from === currentUser.username ? dm.to : dm.from;
+    if(currentUser) {
+      return dm.from === currentUser.username ? dm.to : dm.from;
+    }
   };
 
 

@@ -33,11 +33,17 @@ const setSocket = (channelName, dispatch) => {
   addSocket(channelName, dispatch);
 };
 
+const userChannels = (channels, user) => {
+  if(user) {
+    return getUserChannels(channels, user.id);
+  }
+};
+
 const mapStateToProps = state => ({
   allChannels: getAllChannels(state.channels),
   curChannel: state.curChannel,
   currentUser: state.session.currentUser,
-  userChannels: getUserChannels(state.channels, state.session.currentUser.id),
+  userChannels: userChannels(state.channels, state.session.currentUser),
   userMessages: getUserMessages(state.directMessages)
 });
 
