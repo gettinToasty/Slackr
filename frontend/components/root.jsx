@@ -18,7 +18,7 @@ export default ({ store }) => {
     window.App.cable.subscriptions.remove(window.App.channel);
   };
 
-  const addSocket = (channelName) => {
+  const addSocket = channelName => {
     window.App.channel = window.App.cable.subscriptions.create({
       channel: 'MessageChannel',
       channel_name: channelName
@@ -30,7 +30,7 @@ export default ({ store }) => {
   };
 
 
-  const setSocket = (channelName) => {
+  const setSocket = channelName => {
     if (window.App.channel) {
       removeSocket();
     }

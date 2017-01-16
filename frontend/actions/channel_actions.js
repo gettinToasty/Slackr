@@ -31,5 +31,13 @@ export const fetchChannel = (id, type) => dispatch => {
         .then(resp => dispatch(receiveChannel(resp)))
     );
   }
-
 };
+
+export const joinChannel = channelJoin => dispatch => (
+  ChannelUtil.joinChannel(channelJoin)
+    .then(resp => dispatch(receiveChannel(resp)))
+);
+
+export const leaveChannel = id => dispatch => (
+  ChannelUtil.leaveChannel(id)
+);

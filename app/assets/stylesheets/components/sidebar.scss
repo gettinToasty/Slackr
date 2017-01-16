@@ -33,6 +33,20 @@
     &:hover {
       background-color: $darker-purple;
       cursor: pointer;
+
+      i {
+        display: block;
+      }
+    }
+
+    i {
+      float: right;
+      color: $gray-purple;
+      display: none;
+      &:hover {
+        cursor: pointer;
+        color: white;
+      }
     }
   }
 }

@@ -15,7 +15,10 @@ class ChannelList extends React.Component {
         <ul>
           {
             this.props.channels.map(channel => (
-              <ChannelListItem channel={channel} key={channel.id} />
+              <ChannelListItem
+                channel={channel}
+                key={channel.id}
+                joinChannel={this.props.joinChannel} />
             ))
           }
         </ul>

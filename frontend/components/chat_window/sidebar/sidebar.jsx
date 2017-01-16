@@ -13,16 +13,31 @@ class Sidebar extends React.Component {
     super(props);
     this.state = { openModal: false, modalType: 'channelList' };
     this.toggleModal = this.toggleModal.bind(this);
+    this.joinChannel = this.joinChannel.bind(this);
+    this.leaveChannel = this.leaveChannel.bind(this);
   }
 
   toggleModal(modalType) {
     this.setState({ openModal: !this.state.openModal, modalType });
   }
 
+  joinChannel(id) {
+    let channelJoin = { channel_id: id };
+    this.props.joinChannel(channelJoin)
+      .then(this.props.fetchChannels)
+      .then(() => this.toggleModal(this.state.modalType));
+  }
+
+  leaveChannel(id) {
+
+  }
+
   render() {
     const decideModal = () => {
       if (this.state.modalType === 'channelList') {
-        return <ChannelList channels={this.props.allChannels} />;
+        return <ChannelList
+          channels={this.props.allChannels}
+          joinChannel={this.joinChannel} />;
       } else {
         return <h1>dmList</h1>;
       }

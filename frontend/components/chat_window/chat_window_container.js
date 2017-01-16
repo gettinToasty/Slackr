@@ -1,7 +1,12 @@
 import { connect } from 'react-redux';
 
 import ChatWindow from './chat_window';
-import { fetchChannels, fetchChannel } from '../../actions/channel_actions';
+import {
+  fetchChannels,
+  fetchChannel,
+  joinChannel,
+  leaveChannel
+} from '../../actions/channel_actions';
 import { fetchDms } from '../../actions/dm_actions';
 import { receiveMessage } from '../../actions/message_actions';
 import {
@@ -50,6 +55,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchChannels: () => dispatch(fetchChannels()),
   fetchChannel: (id, type) => dispatch(fetchChannel(id, type)),
+  joinChannel: channelJoin => dispatch(joinChannel(channelJoin)),
   fetchDms: () => dispatch(fetchDms()),
   setSocket: channelName => setSocket(channelName, dispatch)
 });

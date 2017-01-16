@@ -5,6 +5,10 @@ const mapChannels = (userChannels, updateChannel) => {
     return userChannels.map(channel => (
       <li key={channel.id} onClick={() => updateChannel(channel.id, 'Channel')}>
         *{channel.title}
+        <i
+          className="fa fa-times-circle"
+          aria-hidden="true">
+        </i>
       </li>
     ));
   }
