@@ -37,6 +37,6 @@ class Api::MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:body, :postable_id, :postable_type)
+    params.require(:message).permit(:body, :postable_id, :postable_type, :author_id)
   end
 end

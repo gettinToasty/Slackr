@@ -1,13 +1,13 @@
 class MessageRelayJob < ApplicationJob
   def perform(message, channel)
     name = channel.title ? channel.title : 'direct_message'
-    message = Api::MessagesController.render(
+    new_message = Api::MessagesController.render(
       partial: '/api/messages/message',
-      message: message
+      locals: { message: message }
     )
     ActionCable.server.broadcast(
       "channel_#{name}",
-      message: JSON.parse(message)
+      message: JSON.parse(new_message)
     )
   end
 end
