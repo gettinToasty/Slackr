@@ -35,7 +35,7 @@ class TextEntry extends React.Component {
       let content;
       if(this.props.curChannel.title) {
         content = `*${this.props.curChannel.title}`;
-      } else {
+      } else if(this.props.curChannel) {
         content =
           this.props.curChannel.from === this.props.currentUser.username ?
             `@${this.props.curChannel.to}` :
