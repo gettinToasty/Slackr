@@ -14,6 +14,7 @@ class Api::DirectMessagesController < ApplicationController
     @direct_message = DirectMessage.new
     users = params[:users].map { |user| User.find_by(username: user) }
     users.each { |user| @direct_message.users << user }
+    @direct_message.users << current_user
     @direct_message.title = params[:users].join(", ")
     if @direct_message.save
       render :show

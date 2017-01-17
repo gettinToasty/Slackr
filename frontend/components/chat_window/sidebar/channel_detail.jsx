@@ -5,8 +5,7 @@ const channelData = (curChannel, currentUser) => {
   if(curChannel.type === 'Channel') {
     content = curChannel.title;
   } else if(curChannel.type === 'DirectMessage' && currentUser) {
-    content = curChannel.from === currentUser.username ?
-      `@${curChannel.to}` : `@${curChannel.from}`;
+    content = `@${curChannel.title}`;
   }
   return <h4>{content}</h4>;
 };

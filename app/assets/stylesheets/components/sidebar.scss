@@ -9,7 +9,9 @@
   z-index: 1;
   padding: 24px;
   padding-top: 104px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 
   h3 {
     text-transform: uppercase;
@@ -30,6 +32,9 @@
     color: $light-purple;
     padding: 4px;
     border-radius: 4px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
     &:hover {
       background-color: $darker-purple;
       cursor: pointer;
@@ -59,9 +64,12 @@
   padding-bottom: 24px;
   margin-bottom: 32px;
   border-bottom: 1px solid $transparent-purple;
+  text-overflow: ellipsis;
 
   h4 {
     margin-bottom: 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   p {

@@ -18,11 +18,6 @@ export const fetchDms = () => dispatch => (
     .then(resp => dispatch(receiveDms(resp)))
 );
 
-export const fetchDm = id => dispatch => (
-  DmUtil.fetchDm(id)
-    .then(resp => dispatch(receiveDm(resp)))
-);
-
 export const createDm = users => dispatch => (
   DmUtil.createDm(users)
     .then(resp => dispatch(receiveDm(resp)))
