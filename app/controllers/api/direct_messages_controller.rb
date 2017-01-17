@@ -1,22 +1,20 @@
 class Api::DirectMessagesController < ApplicationController
 
   def index
-    @direct_messages =
-      current_user.sent_direct_messages +
-        current_user.received_direct_messages
+    @direct_messages = current_user.direct_messages
   end
 
   def show
     @direct_message = DirectMessage
-      .includes(:sender, :receiver, messages: [:author])
+      .includes(:users, messages: [:author])
       .find(params[:id])
   end
 
   def create
     @direct_message = DirectMessage.new
-    receiver = Username.find_by(username: params[:username])
-    @direct_message.receiver = receiver
-    @direct_message.sender = current_user
+    users = params[:users].map { |user| User.find_by(username: user) }
+    @direct_message.users = users
+    @direct_message.title = params[:users].join(", ")
     if @direct_message.save
       render :show
     else

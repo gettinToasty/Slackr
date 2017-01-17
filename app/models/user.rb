@@ -16,15 +16,11 @@ class User < ApplicationRecord
     through: :channel_joins,
     source: :channel
 
-  has_many :sent_direct_messages,
-    foreign_key: :from_id,
-    class_name: :DirectMessage,
-    dependent: :destroy
+  has_many :dm_joins
 
-  has_many :received_direct_messages,
-    foreign_key: :to_id,
-    class_name: :DirectMessage,
-    dependent: :destroy
+  has_many :direct_messages,
+    through: :dm_joins,
+    source: :direct_message
 
   has_many :owned_messages,
     foreign_key: :author_id,

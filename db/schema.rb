@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117170859) do
+ActiveRecord::Schema.define(version: 20170117183748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,13 +33,9 @@ ActiveRecord::Schema.define(version: 20170117170859) do
   end
 
   create_table "direct_messages", force: :cascade do |t|
-    t.integer  "to_id",      null: false
-    t.integer  "from_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["from_id"], name: "index_direct_messages_on_from_id", using: :btree
-    t.index ["to_id", "from_id"], name: "index_direct_messages_on_to_id_and_from_id", unique: true, using: :btree
-    t.index ["to_id"], name: "index_direct_messages_on_to_id", using: :btree
+    t.string   "title"
   end
 
   create_table "dm_joins", force: :cascade do |t|

@@ -1,13 +1,10 @@
 class DirectMessage < ApplicationRecord
-  validates :sender, :receiver, presence: true
 
-  belongs_to :sender,
-    foreign_key: :from_id,
-    class_name: :User
+  has_many :dm_joins
 
-  belongs_to :receiver,
-    foreign_key: :to_id,
-    class_name: :User
+  has_many :users,
+    through: :dm_joins,
+    source: :user
 
   has_many :messages, as: :postable
 
