@@ -82,13 +82,6 @@ channel_joins = ChannelJoin.create!([
   }
 ])
 
-direct_messages = DirectMessage.create!([
-  {
-    sender: User.find_by(username: 'Guest'),
-    receiver: User.find_by(username: 'toastyBot')
-  }
-])
-
 messages = Message.create!([
   {
     body: "Welcome to *slackr! Everyone's favorite team chatting app for teams who want to do anything but work.",
