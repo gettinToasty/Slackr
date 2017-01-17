@@ -7,6 +7,7 @@ import ChannelIndex from './channel_index';
 import ChannelList from './channel_list';
 
 import UserIndex from './user_index';
+import UserList from './user_list';
 
 import { fetchChannelJoin } from '../../../util/channel_api_util';
 
@@ -31,7 +32,6 @@ class Sidebar extends React.Component {
   }
 
   leaveChannel(channelId) {
-    //find channelJoin using channelId and currentUser.id
     fetchChannelJoin(this.props.currentUser.id, channelId)
       .then(resp => this.props.leaveChannel(resp.id))
       .then(this.props.fetchChannels)
@@ -45,7 +45,7 @@ class Sidebar extends React.Component {
           channels={this.props.allChannels}
           joinChannel={this.joinChannel} />;
       } else {
-        return <h1>dmList</h1>;
+        return <UserList users={this.props.users} />;
       }
     };
 

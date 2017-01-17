@@ -49,7 +49,8 @@ const mapStateToProps = state => ({
   curChannel: state.curChannel,
   currentUser: state.session.currentUser,
   userChannels: userChannels(state.channels, state.session.currentUser),
-  userMessages: getUserMessages(state.directMessages)
+  userMessages: getUserMessages(state.directMessages),
+  
 });
 
 const mapDispatchToProps = dispatch => ({
