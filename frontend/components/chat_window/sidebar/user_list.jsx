@@ -11,7 +11,7 @@ class UserList extends React.Component {
   updateQuery(e) {
     this.setState({ query: e.target.value }, () => {
       let users = this.props.users.filter(user => (
-        user.title.includes(this.state.query)
+        user.username.includes(this.state.query)
       ));
       if(this.state.query === "") { users = this.props.users; }
       this.setState({ users });
