@@ -39,7 +39,8 @@ class ChatWindow extends React.Component {
           userMessages={this.props.userMessages}
           joinChannel={this.props.joinChannel}
           leaveChannel={this.props.leaveChannel}
-          fetchChannels={this.props.fetchChannels} />
+          fetchChannels={this.props.fetchChannels}
+          users={this.props.users} />
         <ChatElementsContainer />
       </div>
     );
