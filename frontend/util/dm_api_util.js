@@ -11,3 +11,11 @@ export const fetchDm = id => (
     url: `api/direct_messages/${id}`
   })
 );
+
+export const createDm = users => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/direct_messages',
+    data: { users }
+  })
+);
