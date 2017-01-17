@@ -1,13 +1,14 @@
 import React from 'react';
 
-const channelData = (curChannel, currentUser) => {
-  let content;
+const channelData = (curChannel) => {
+  let content, dots;
   if(curChannel.type === 'Channel') {
     content = curChannel.title;
-  } else if(curChannel.type === 'DirectMessage' && currentUser) {
-    content = `@${curChannel.title}`;
+  } else if(curChannel.type === 'DirectMessage') {
+    content = `@${curChannel.title.slice(0,16)}`;
+    dots = curChannel.title.length > 16 ? '...' : '';
   }
-  return <h4>{content}</h4>;
+  return <h4>{content}{dots}</h4>;
 };
 
 const username = user => {
