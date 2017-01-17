@@ -26,6 +26,10 @@ User.create!(username: 'nil', password: SecureRandom.urlsafe_base64(16))
 
 channels = Channel.create!([
   {
+    title: 'slackr-tutorial',
+    owner: User.find_by(username: 'toastyBot')
+  },
+  {
     title: 'yeezus-lives',
     owner: User.find_by(username: 'toastyBot')
   },
@@ -58,6 +62,10 @@ channels = Channel.create!([
 channel_joins = ChannelJoin.create!([
   {
     user: User.find_by(username: 'Guest'),
+    channel: Channel.find_by(title: 'slackr-tutorial')
+  },
+  {
+    user: User.find_by(username: 'Guest'),
     channel: Channel.find_by(title: 'yeezus-lives')
   },
   {
@@ -82,6 +90,24 @@ direct_messages = DirectMessage.create!([
 ])
 
 messages = Message.create!([
+  {
+    body: "Welcome to *slackr! Everyone's favorite team chatting app for teams who want to do anything but work.",
+    author: User.find_by(username: 'toastyBot'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'slackr-tutorial').id
+  },
+  {
+    body: "To get started you can type below to send messages to this channel, or feel free to check out our other channels via the sidebar to your left.",
+    author: User.find_by(username: 'toastyBot'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'slackr-tutorial').id
+  },
+  {
+    body: "If you want to get up close and personal, feel free to send a DM to one of our users via the Direct Messages option. They might not message you back!",
+    author: User.find_by(username: 'toastyBot'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'slackr-tutorial').id
+  },
   {
     body: 'i feel like pablo :kanye:',
     author: User.find_by(username: 'dribblemonks'),
