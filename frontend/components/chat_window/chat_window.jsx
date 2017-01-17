@@ -11,6 +11,10 @@ class ChatWindow extends React.Component {
     this.updateChannel = this.updateChannel.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
+
   updateChannel(id, type) {
     const title = () => {
       if(this.props.curChannel.title) {

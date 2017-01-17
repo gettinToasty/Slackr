@@ -7,6 +7,7 @@ import {
   joinChannel,
   leaveChannel
 } from '../../actions/channel_actions';
+import { fetchUsers } from '../../actions/user_actions';
 import { fetchDms } from '../../actions/dm_actions';
 import { receiveMessage } from '../../actions/message_actions';
 import {
@@ -50,12 +51,14 @@ const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   userChannels: userChannels(state.channels, state.session.currentUser),
   userMessages: getUserMessages(state.directMessages),
-  
+  users: state.users
+
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchChannels: () => dispatch(fetchChannels()),
   fetchChannel: (id, type) => dispatch(fetchChannel(id, type)),
+  fetchUsers: () => dispatch(fetchUsers()),
   joinChannel: channelJoin => dispatch(joinChannel(channelJoin)),
   leaveChannel: id => dispatch(leaveChannel(id)),
   fetchDms: () => dispatch(fetchDms()),
