@@ -8,4 +8,5 @@ class DirectMessage < ApplicationRecord
 
   has_many :messages, as: :postable
 
+
 end

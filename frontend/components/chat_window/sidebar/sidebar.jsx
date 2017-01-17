@@ -45,7 +45,11 @@ class Sidebar extends React.Component {
           channels={this.props.allChannels}
           joinChannel={this.joinChannel} />;
       } else {
-        return <UserList users={this.props.users} />;
+        return <UserList
+          users={this.props.users}
+          createDm={this.props.createDm}
+          fetchDms={this.props.fetchDms}
+          toggleModal={() => this.toggleModal(this.state.modalType)} />;
       }
     };
 

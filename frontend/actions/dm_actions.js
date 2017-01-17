@@ -8,9 +8,9 @@ export const receiveDms = dms => ({
   dms
 });
 
-export const receiveDm = curDm => ({
+export const receiveDm = dm => ({
   type: RECEIVE_DM,
-  curDm
+  dm
 });
 
 export const fetchDms = () => dispatch => (

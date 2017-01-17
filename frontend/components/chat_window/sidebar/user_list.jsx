@@ -29,8 +29,11 @@ class UserList extends React.Component {
     }
   }
 
-  handleSubmit() {
-    this.props.createDm(this.state.formUsers);
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createDm(this.state.formUsers)
+      .then(this.props.fetchDms)
+      .then(this.props.toggleModal);
   }
 
   handleRemove(username) {
@@ -52,12 +55,13 @@ class UserList extends React.Component {
           onChange={this.updateQuery}
           value={this.state.query}
           placeholder='Search Users' />
+        <input type='submit' onClick={this.handleSubmit} value='Add DM' />
         <ul className="selected-users">
           {this.state.formUsers.map((user, i) => (
             <li
               key={i}
               onClick={() => this.handleRemove(user)}>
-              {user}
+              @{user}
             </li>
           ))}
         </ul>

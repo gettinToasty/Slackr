@@ -8,7 +8,7 @@ import {
   leaveChannel
 } from '../../actions/channel_actions';
 import { fetchUsers } from '../../actions/user_actions';
-import { fetchDms } from '../../actions/dm_actions';
+import { fetchDms, createDm } from '../../actions/dm_actions';
 import { receiveMessage } from '../../actions/message_actions';
 import {
   getAllChannels,
@@ -62,6 +62,7 @@ const mapDispatchToProps = dispatch => ({
   joinChannel: channelJoin => dispatch(joinChannel(channelJoin)),
   leaveChannel: id => dispatch(leaveChannel(id)),
   fetchDms: () => dispatch(fetchDms()),
+  createDm: users => dispatch(createDm(users)),
   setSocket: channelName => setSocket(channelName, dispatch)
 });
 
