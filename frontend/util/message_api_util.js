@@ -31,3 +31,10 @@ export const updateMessage = message => (
     data: { message }
   })
 );
+
+export const getGiphy = query => (
+  $.ajax({
+    method: 'GET',
+    url: `http://api.giphy.com/v1/gifs/translate?s=${query}&rating=pg-13&api_key=dc6zaTOxFJmzC`
+  })
+);

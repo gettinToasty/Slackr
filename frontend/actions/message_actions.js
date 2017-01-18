@@ -24,10 +24,30 @@ export const fetchMessages = (type, id) => dispatch => (
     .then(resp => dispatch(receiveMessages(resp)))
 );
 
-export const createMessage = message => dispatch => (
-  MessageUtil.createMessage(message)
-    .then(resp => dispatch(receiveMessage(resp)))
-);
+const parseGiphy = (giphy, searchStr) => {
+  return (
+    `<a href="${giphy.data.url}">${searchStr}</a>
+    <img src="${giphy.data.images.fixed_height.url}" />`
+  );
+};
+
+export const createMessage = message => dispatch => {
+  let giphyMessage = message.body.match(/^\/giphy (.*)/);
+  if(giphyMessage) {
+    let query = giphyMessage[1].replace(/\s+/,'+');
+    return MessageUtil.getGiphy(query)
+      .then(resp => parseGiphy(resp, giphyMessage[1]))
+      .then(body => {
+        message.body = body;
+        return message;
+      })
+      .then(parsedMessage => MessageUtil.createMessage(parsedMessage))
+      .then(respMessage => dispatch(receiveMessage(respMessage)));
+  } else {
+    return MessageUtil.createMessage(message)
+    .then(resp => dispatch(receiveMessage(resp)));
+  }
+};
 
 export const updateMessage = message => dispatch => (
   MessageUtil.updateMessage(message)

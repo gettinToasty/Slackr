@@ -5,22 +5,22 @@
 ## Features and Implementation
 
 ### Demo Account
-![Image Description](img/url)
+![*slackr Splash Page](docs/screenshots/login.png)
 
 New visitors can easily preview all of \*slackr's functionality without signing up for their own account. Clicking on the Demo button logs a visitor in to a built-in Guest account, leading them to the tutorial channel.
 
 ### Live Chat
-![Image Description](img/url)
+![An example of a *slackr chatrooom](docs/screenshots/messaging.png)
 
 Messages are stored in the database and belong to both an `author` and either a `channel` or a `direct_message`. ActionCable, introduced in Rails v5.0, is used to upgrade a user's connection to a websocket to allow users to send a receive messages in real time.
 
 ### Channels
-![Image Description](img/url)
+![*slackr's Channel Search in action](docs/screenshots/channels.png)
 
 Messages are organized primarily through channels, which any user can freely join or leave as they please. Channels can be dynamically searched and filtered through in the Channel Search bar which updates on every keystroke entered into it.
 
 ### Direct Messages
-![Image Description](img/url)
+![*slackr lets you message whoever you want with Direct Messages](docs/screenshots/direct_messages.png)
 
 Users can also message one or more other users using \*slackr's Direct Message feature. Simply select the users you want to message from the list and message away! Add a user you didn't mean to? No worries, with \*slackr it's as simple as clicking on their name below the search bar to make them go away and never speak of them again. With as many users as \*slackr has, searching is a breeze thanks to a similar functionality with its above-described Channel Search.
 

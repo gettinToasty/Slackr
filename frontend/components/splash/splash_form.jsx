@@ -44,12 +44,14 @@ class SplashForm extends React.Component {
         {
           submit: 'Log In',
           link: '/signup',
-          linkText: "Don't have an account? Sign up here"
+          blurb: "Don't have an account?",
+          linkText: "Sign up here"
         } :
         {
           submit: 'Sign Up',
           link: '/login',
-          linkText: "Already a member? Log in here"
+          blurb: "Already a member?",
+          linkText: "Log in here"
         }
     );
 
@@ -83,7 +85,10 @@ class SplashForm extends React.Component {
           </label>
           <input type='submit' value={text().submit} />
           <button type='button' onClick={this.guestLogin}>Demo</button>
-          <Link to={text().link}>{text().linkText}</Link>
+          <span>
+            {text().blurb} <Link to={text().link}>{text().linkText}</Link>
+          </span>
+
         </form>
       </div>
     );
