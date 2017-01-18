@@ -36,4 +36,15 @@
     font-style: italic;
     color: $gray-purple;
   }
+  .giphy {
+    margin-left: 16px;
+    border-left: 4px solid $transparent-gray-purple;
+    border-radius: 4px;
+    padding: 8px;
+    p {
+      font-size: 12px;
+      margin-left: 0;
+      color: $gray-purple;
+    }
+  }
 }

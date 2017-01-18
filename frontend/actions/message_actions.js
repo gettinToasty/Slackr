@@ -26,8 +26,7 @@ export const fetchMessages = (type, id) => dispatch => (
 
 const parseGiphy = (giphy, searchStr) => {
   return (
-    `<a href="${giphy.data.url}">${searchStr}</a>
-    <img src="${giphy.data.images.fixed_height.url}" />`
+    `GIPHY_DATA ${giphy.data.url} _ ${searchStr} _ ${giphy.data.images.fixed_height.url}`
   );
 };
 
