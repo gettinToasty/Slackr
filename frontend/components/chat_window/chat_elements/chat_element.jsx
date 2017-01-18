@@ -2,6 +2,8 @@ import React from 'react';
 import emojione from 'emojione';
 
 const parseBody = body => {
+  emojione.ascii = true;
+  
   let match = body.match(/GIPHY_DATA (.+) _ (.+) _ (.+)/);
   if(match) {
     return (
