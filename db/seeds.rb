@@ -96,7 +96,13 @@ messages = Message.create!([
     postable_id: Channel.find_by(title: 'slackr-tutorial').id
   },
   {
-    body: "If you want to get up close and personal, feel free to send a DM to one of our users via the Direct Messages option. They might not message you back!",
+    body: "If you want to get up close and personal, feel free to send a DM to one of our users via the Direct Messages option. Be careful, they might not message you back!",
+    author: User.find_by(username: 'toastyBot'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'slackr-tutorial').id
+  },
+  {
+    body: "Feeling animated? Use /giphy [text] to add an animated gif to the conversation!",
     author: User.find_by(username: 'toastyBot'),
     postable_type: 'Channel',
     postable_id: Channel.find_by(title: 'slackr-tutorial').id
