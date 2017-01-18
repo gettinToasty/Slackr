@@ -4,7 +4,10 @@ export default ({userMessages, updateChannel, currentUser}) => {
   return (
     <ul>
       {userMessages.map(dm => {
-        let rgx = new RegExp(`${currentUser.username},?\\s?`);
+        let rgx;
+        if(currentUser) {
+          rgx = new RegExp(`${currentUser.username},?\\s?`);
+        }
         let title = dm.title.replace(rgx, '');
         let dots = title.length > 16 ? '...' : '';
         return (

@@ -1,8 +1,10 @@
 import React from 'react';
 
 const channelData = (curChannel, currentUser) => {
-  let rgx = new RegExp(`${currentUser.username},?\\s?`);
-  let content, dots;
+  let content, dots, rgx;
+  if(currentUser) {
+    rgx = new RegExp(`${currentUser.username},?\\s?`);
+  }
   if(curChannel.type === 'Channel') {
     content = curChannel.title;
   } else if(curChannel.type === 'DirectMessage') {
