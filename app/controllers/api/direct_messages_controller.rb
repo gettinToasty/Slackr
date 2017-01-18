@@ -11,11 +11,11 @@ class Api::DirectMessagesController < ApplicationController
   end
 
   def create
-    @direct_message = DirectMessage.new
     users = params[:users].map { |user| User.find_by(username: user) }
-    users.each { |user| @direct_message.users << user }
-    @direct_message.users << current_user
-    @direct_message.title = params[:users].join(", ")
+      .push(current_user)
+    title = users.sort.map(&:username).join(', ')
+    @direct_message = DirectMessage.find_or_initialize_by(title: title)
+    @direct_message.users = users
     if @direct_message.save
       render :show
     else

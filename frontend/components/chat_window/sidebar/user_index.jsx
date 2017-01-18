@@ -1,13 +1,15 @@
 import React from 'react';
 
-export default ({userMessages, updateChannel}) => {
+export default ({userMessages, updateChannel, currentUser}) => {
   return (
     <ul>
       {userMessages.map(dm => {
-        let dots = dm.title.length > 16 ? '...' : '';
+        let rgx = new RegExp(`${currentUser.username},?\\s?`);
+        let title = dm.title.replace(rgx, '');
+        let dots = title.length > 16 ? '...' : '';
         return (
           <li key={dm.id} onClick={() => updateChannel(dm.id, 'DirectMessage')}>
-            @{dm.title.slice(0, 16)}{dots}
+            @{title.slice(0, 16)}{dots}
           </li>
         );
         }

@@ -35,8 +35,9 @@ class TextEntry extends React.Component {
       let content = 'channel';
       if(this.props.curChannel.type === "Channel") {
         content = `*${this.props.curChannel.title}`;
-      } else {
-        content = `@${this.props.curChannel.title}`;
+      } else if(this.props.curChannel.type === 'DirectMessage') {
+        let rgx = new RegExp(`${this.props.currentUser.username},?\\s?`);
+        content = `@${this.props.curChannel.title.replace(rgx, '')}`;
       }
       return content;
     };
