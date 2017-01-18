@@ -1,4 +1,5 @@
 import React from 'react';
+import emojione from 'emojione';
 
 const parseBody = body => {
   let match = body.match(/GIPHY_DATA (.+) _ (.+) _ (.+)/);
@@ -11,7 +12,7 @@ const parseBody = body => {
       </div>
     );
   } else {
-    return <p>{body}</p>;
+    return <p>{emojione.shortnameToUnicode(body)}</p>;
   }
 };
 
