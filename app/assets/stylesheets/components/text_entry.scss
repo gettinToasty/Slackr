@@ -18,3 +18,24 @@
 
   }
 }
+
+.emoji-picker {
+  position: absolute;
+  height: auto;
+  width: auto;
+}
+
+.emoji-picker-container {
+  position: absolute;
+  height: auto;
+  width: auto;
+  right: 32px;
+  top: 18px;
+
+  i {
+    color: $gray-purple;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

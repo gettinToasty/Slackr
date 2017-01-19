@@ -1,4 +1,5 @@
 import React from 'react';
+import EmojiInput from './emoji_picker';
 
 class TextEntry extends React.Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class TextEntry extends React.Component {
     this.updateBody = this.updateBody.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetForm = this.resetForm.bind(this);
+    this.addEmoji = this.addEmoji.bind(this);
   }
 
   updateBody(e) {
@@ -30,6 +32,10 @@ class TextEntry extends React.Component {
     this.setState({ body: "" });
   }
 
+  addEmoji(emoji) {
+    this.setState({ body: `${this.state.body} ${emoji}` });
+  }
+
   render() {
     const placeholderText = () => {
       let content = 'channel';
@@ -50,6 +56,7 @@ class TextEntry extends React.Component {
           value={this.state.body}
           onChange={this.updateBody}
           onKeyUp={this.handleSubmit} />
+        <EmojiInput addEmoji={this.addEmoji} />
       </div>
     );
   }
