@@ -14,29 +14,6 @@ import { receiveMessage } from '../actions/message_actions.js';
 
 export default ({ store }) => {
 
-  const removeSocket = () => {
-    window.App.cable.subscriptions.remove(window.App.channel);
-  };
-
-  const addSocket = channelName => {
-    window.App.channel = window.App.cable.subscriptions.create({
-      channel: 'MessageChannel',
-      channel_name: channelName
-    }, {
-      connected: () => {},
-      disconnected: () => {},
-      received: data => { store.dispatch(receiveMessage(data.message)); }
-    });
-  };
-
-
-  const setSocket = channelName => {
-    if (window.App.channel) {
-      removeSocket();
-    }
-    addSocket(channelName);
-  };
-
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
@@ -59,8 +36,7 @@ export default ({ store }) => {
     } else {
       store.dispatch(fetchChannels())
       .then(() => store.dispatch(fetchDms()))
-      .then(() => store.dispatch(fetchChannel(userChannels()[0].id, 'Channel')))
-      .then(() => setSocket(channelName()));
+      .then(() => store.dispatch(fetchChannel(userChannels()[0].id, 'Channel')));
     }
   };
 

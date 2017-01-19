@@ -12,19 +12,13 @@ class ChatWindow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUsers();
+    this.props.fetchUsers()
+      .then(() => this.props.setSocket(this.props.curChannel.title));
   }
 
   updateChannel(id, type) {
-    const title = () => {
-      if(this.props.curChannel.title) {
-        return this.props.curChannel.title;
-      } else {
-        return 'direct_message';
-      }
-    };
     this.props.fetchChannel(id, type)
-      .then(() => this.props.setSocket(title()));
+      .then(() => this.props.setSocket(this.props.curChannel.title));
   }
 
   render() {
