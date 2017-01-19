@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  //TODO: remove store from window
-  window.store = store;
 
   Modal.setAppElement(document.body);
 

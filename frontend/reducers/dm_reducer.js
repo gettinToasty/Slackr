@@ -7,7 +7,6 @@ export default (state = {}, action) => {
     case RECEIVE_DMS:
       return action.dms;
     case RECEIVE_DM:
-      console.log(action.dm);
       return merge({}, state, {[action.dm.id]: action.dm});
     default:
       return state;
