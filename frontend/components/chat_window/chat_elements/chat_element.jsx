@@ -1,8 +1,7 @@
 import React from 'react';
-import emojione from 'emojione';
+import ReactEmoji from 'react-emoji';
 
 const parseBody = body => {
-  emojione.ascii = true;
 
   let match = body.match(/GIPHY_DATA (.+) _ (.+) _ (.+)/);
   if(match) {
@@ -14,7 +13,7 @@ const parseBody = body => {
       </div>
     );
   } else {
-    return <p>{emojione.shortnameToUnicode(body)}</p>;
+    return <p>{ReactEmoji.emojify(body)}</p>;
   }
 };
 
