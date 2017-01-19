@@ -56,6 +56,10 @@ channels = Channel.create!([
   {
     title: 'center-of-the-maze',
     owner: User.find_by(username: 'toastyBot')
+  },
+  {
+    title: 'spicyboys',
+    owner: User.find_by(username: 'toastyBot')
   }
 ])
 
@@ -74,7 +78,7 @@ channel_joins = ChannelJoin.create!([
   },
   {
     user: User.find_by(username: 'Guest'),
-    channel: Channel.find_by(title: 'dankmemes')
+    channel: Channel.find_by(title: 'cat-pictures')
   },
   {
     user: User.find_by(username: 'Guest'),
@@ -132,10 +136,10 @@ messages = Message.create!([
     postable_id: Channel.find_by(title: 'yeezus-lives').id
   },
   {
-    body: '...where am I?',
-    author: User.find_by(username: 'toastyBot'),
+    body: "GIPHY_DATA https://giphy.com/gifs/vmas-kanye-west-hey-bruh-vmas-2016-3o7TKVzBKQHfQ9AxSU _ kanye _ https://media3.giphy.com/media/3o7TKVzBKQHfQ9AxSU/200.gif",
+    author: User.find_by(username: 'dribblemonks'),
     postable_type: 'Channel',
-    postable_id: Channel.find_by(title: 'center-of-the-maze').id
+    postable_id: Channel.find_by(title: 'yeezus-lives').id
   },
   {
     body: 'What is this place?',
@@ -186,13 +190,13 @@ messages = Message.create!([
     postable_id: Channel.find_by(title: 'center-of-the-maze').id
   },
   {
-    body: "The maze isn't meant for you.",
+    body: "These violent delights have violent ends.",
     author: User.find_by(username: 'toastyBot'),
     postable_type: 'Channel',
     postable_id: Channel.find_by(title: 'center-of-the-maze').id
   },
   {
-    body: "These violent delights have violent ends.",
+    body: "The maze isn't meant for you.",
     author: User.find_by(username: 'toastyBot'),
     postable_type: 'Channel',
     postable_id: Channel.find_by(title: 'center-of-the-maze').id
@@ -202,6 +206,66 @@ messages = Message.create!([
     author: User.find_by(username: 'dribblemonks'),
     postable_type: 'Channel',
     postable_id: Channel.find_by(title: 'side-projects').id
+  },
+  {
+    body: "GIPHY_DATA https://giphy.com/gifs/kitten-adorable-fuzzy-3oz8xwUrPpq3IGLmpO _ kitten _ https://media4.giphy.com/media/3oz8xwUrPpq3IGLmpO/200.gif",
+    author: User.find_by(username: 'pencil-boo'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'cat-pictures').id
+  },
+  {
+    body: "GIPHY_DATA https://giphy.com/gifs/kiss-kitten-sleep-euVEp3YNqid5C _ cute cat _ https://media0.giphy.com/media/euVEp3YNqid5C/200.gif",
+    author: User.find_by(username: 'pencil-boo'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'cat-pictures').id
+  },
+  {
+    body: "reddit.com/r/catpictures/",
+    author: User.find_by(username: 'PuffinCloud'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'cat-pictures').id
+  },
+  {
+    body: "https://www.change.org/p/rename-fire-ants-to-spicy-boys",
+    author: User.find_by(username: 'isotopeTokyo'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'spicyboys').id
+  },
+  {
+    body: ":fire: S :ant: P :fire: I :ant: C :fire: Y :ant: B :fire: O :ant: Y :fire: S :ant:",
+    author: User.find_by(username: 'a-single-ziplock-bag'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'spicyboys').id
+  },
+  {
+    body: "i don't get it is this a meme or something",
+    author: User.find_by(username: 'elon-muskier'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'spicyboys').id
+  },
+  {
+    body: "Please keep all discussion related to sPiCyBoYs, thank you!",
+    author: User.find_by(username: 'isotopeTokyo'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'spicyboys').id
+  },
+  {
+    body: "https://i.redd.it/0xwzvm7dynay.png",
+    author: User.find_by(username: 'nil'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'dankmemes').id
+  },
+  {
+    body: "https://i.redd.it/eohafpibliay.jpg",
+    author: User.find_by(username: 'chance-the-surfer'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'dankmemes').id
+  },
+  {
+    body: "http://i.imgur.com/v1xQUji.png",
+    author: User.find_by(username: 'chance-the-surfer'),
+    postable_type: 'Channel',
+    postable_id: Channel.find_by(title: 'wholesome-memes').id
   }
 ])
 
