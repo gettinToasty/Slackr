@@ -25,9 +25,13 @@ export const fetchMessages = (type, id) => dispatch => (
 );
 
 const parseGiphy = (giphy, searchStr) => {
-  return (
-    `GIPHY_DATA ${giphy.data.url} _ ${searchStr} _ ${giphy.data.images.fixed_height.url}`
-  );
+  if(giphy.data.constructor === Array) {
+    return `Giphy couldn't match "${searchStr}" and I'm deeply ashamed :(`;
+  } else {
+    return (
+      `GIPHY_DATA ${giphy.data.url} _ ${searchStr} _ ${giphy.data.images.fixed_height.url}`
+    );
+  }
 };
 
 export const createMessage = message => dispatch => {
