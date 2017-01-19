@@ -77,6 +77,10 @@ channel_joins = ChannelJoin.create!([
     channel: Channel.find_by(title: 'yeezus-lives')
   },
   {
+    user: User.find_by(username: 'chance-the-surfer'),
+    channel: Channel.find_by(title: 'wholesome-memes')
+  },
+  {
     user: User.find_by(username: 'Guest'),
     channel: Channel.find_by(title: 'cat-pictures')
   },
@@ -282,6 +286,62 @@ techusers = [
   User.find_by(username: 'nil'),
   User.find_by(username: 'tacodog')
 ]
+
+dankusers = [
+  User.find_by(username: 'nil'),
+  User.find_by(username: 'chance-the-surfer')
+]
+
+yeezususers = [
+  User.find_by(username: 'dribblemonks'),
+  User.find_by(username: 'chance-the-surfer')
+]
+
+catusers = [
+  User.find_by(username: 'PuffinCloud'),
+  User.find_by(username: 'pencil-boo')
+]
+
+spicyusers = [
+  User.find_by(username: 'isotopeTokyo'),
+  User.find_by(username: 'elon-muskier'),
+  User.find_by(username: 'a-single-ziplock-bag')
+]
+
+techusers.each do |user|
+  ChannelJoin.create!(
+    user: user,
+    channel: Channel.find_by(title: 'side-projects')
+  )
+end
+
+dankusers.each do |user|
+  ChannelJoin.create!(
+    user: user,
+    channel: Channel.find_by(title: 'dankmemes')
+  )
+end
+
+yeezususers.each do |user|
+  ChannelJoin.create!(
+    user: user,
+    channel: Channel.find_by(title: 'yeezus-lives')
+  )
+end
+
+catusers.each do |user|
+  ChannelJoin.create!(
+    user: user,
+    channel: Channel.find_by(title: 'cat-pictures')
+  )
+end
+
+spicyusers.each do |user|
+  ChannelJoin.create!(
+    user: user,
+    channel: Channel.find_by(title: 'spicyboys')
+  )
+end
 
 25.times do
   Message.create!(
