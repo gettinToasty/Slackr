@@ -3,13 +3,23 @@ import ReactEmoji from 'react-emoji';
 
 const parseBody = body => {
 
-  let match = body.match(/GIPHY_DATA (.+) _ (.+) _ (.+)/);
-  if(match) {
+  let giphyMatch = body.match(/GIPHY_DATA (.+) _ (.+) _ (.+)/);
+  let linkMatch = body.match(/^((https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?)(.*)$/);
+  if(giphyMatch) {
     return (
       <div className='giphy'>
-        <a href={match[1]}>{match[2]}</a><br />
+        <a href={giphyMatch[1]}>{giphyMatch[2]}</a><br />
         <p>Posted using /giphy [text]</p>
-        <img src={match[3]} />
+        <img src={giphyMatch[3]} />
+      </div>
+    );
+  } else if(linkMatch) {
+    const https = linkMatch[1].match(/^http/) ? "" : "https://";
+    return (
+      <div>
+        <a href={`${https}${linkMatch[1]}`}>
+          {ReactEmoji.emojify(linkMatch[0])}
+        </a>
       </div>
     );
   } else {

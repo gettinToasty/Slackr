@@ -1,9 +1,10 @@
-var React = require('react');
-var EmojiPicker = require('react-emoji-picker');
-var emojiMap = require('react-emoji-picker/lib/emojiMap');
+// react-emoji-picker available here: https://www.npmjs.com/package/react-emoji-picker
 
-// styles for the emoji picker wrapper
-var emojiPickerStyles = {
+import React from 'react';
+import EmojiPicker from 'react-emoji-picker';
+import emojiMap from 'react-emoji-picker/lib/emojiMap';
+
+const emojiPickerStyles = {
   position: 'absolute',
   right: '-16px', top: '-300px',
   backgroundColor: 'white',
