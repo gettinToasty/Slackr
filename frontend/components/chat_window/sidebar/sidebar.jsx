@@ -18,6 +18,7 @@ class Sidebar extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.joinChannel = this.joinChannel.bind(this);
     this.leaveChannel = this.leaveChannel.bind(this);
+    this.leaveDm = this.leaveDm.bind(this);
   }
 
   toggleModal(modalType) {
@@ -35,6 +36,12 @@ class Sidebar extends React.Component {
     fetchChannelJoin(this.props.currentUser.id, channelId)
       .then(resp => this.props.leaveChannel(resp.id))
       .then(this.props.fetchChannels)
+      .then(() => this.props.updateChannel(this.props.userChannels[0].id, 'Channel'));
+  }
+
+  leaveDm(dmId) {
+    this.props.leaveDm(dmId)
+      .then(this.props.fetchDms)
       .then(() => this.props.updateChannel(this.props.userChannels[0].id, 'Channel'));
   }
 
@@ -82,7 +89,8 @@ class Sidebar extends React.Component {
         <UserIndex
           userMessages={this.props.userMessages}
           updateChannel={this.props.updateChannel}
-          currentUser={this.props.currentUser} />
+          currentUser={this.props.currentUser}
+          leaveDm={this.leaveDm} />
       </div>
     );
   }

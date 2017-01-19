@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({userMessages, updateChannel, currentUser}) => {
+export default ({userMessages, updateChannel, currentUser, leaveDm}) => {
   return (
     <ul>
       {userMessages.map(dm => {
@@ -13,6 +13,12 @@ export default ({userMessages, updateChannel, currentUser}) => {
         return (
           <li key={dm.id} onClick={() => updateChannel(dm.id, 'DirectMessage')}>
             @{title.slice(0, 16)}{dots}
+            <div onClick={() => leaveDm(dm.id)}>
+              <i
+                className="fa fa-times-circle"
+                aria-hidden="true">
+              </i>
+            </div>
           </li>
         );
         }

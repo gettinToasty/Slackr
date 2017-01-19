@@ -25,7 +25,10 @@ class Api::DirectMessagesController < ApplicationController
 
   def destroy
     @direct_message = DirectMessage.find(params[:id])
-    @direct_message.destroy
+    @direct_message.users = @direct_message.users.reject do |user|
+      user == current_user
+    end
+    @direct_message.destroy if @direct_message.users.length <= 1
     render :show
   end
 

@@ -19,3 +19,10 @@ export const createDm = users => (
     data: { users }
   })
 );
+
+export const leaveDm = id => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/direct_messages/${id}`
+  })
+);

@@ -1,4 +1,7 @@
-import { RECEIVE_DMS, RECEIVE_DM } from '../actions/dm_actions';
+import {
+  RECEIVE_DMS,
+  RECEIVE_DM,
+  REMOVE_DM } from '../actions/dm_actions';
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {
