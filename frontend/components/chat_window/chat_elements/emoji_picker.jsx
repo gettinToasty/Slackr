@@ -16,48 +16,47 @@ const emojiPickerStyles = {
   zIndex: '2'
 };
 
-var EmojiInput = React.createClass({
-  getInitialState: function() {
-    return {
-      emoji: null,
-      showEmojiPicker: false,
-    };
-  },
+class EmojiInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { emoji: null, showEmojiPicker: false };
+    this.toggleEmojiPicker = this.toggleEmojiPicker.bind(this);
+    this.setEmoji = this.setEmoji.bind(this);
+    this.emojiPicker = this.emojiPicker.bind(this);
+  }
 
-  toggleEmojiPicker: function(e) {
+  toggleEmojiPicker() {
     this.setState({ showEmojiPicker: !this.state.showEmojiPicker });
-  },
+  }
 
-  setEmoji: function(emoji) {
+  setEmoji(emoji) {
     this.props.addEmoji(emoji);
     this.toggleEmojiPicker();
-  },
+  }
 
-  // allows selecting first emoji by pressing "Enter" without submitting form
-  grabKeyPress: function(e) {
-    if(e.keyCode === 13) {
-      e.preventDefault();
-    }
-  },
-
-  emojiPicker: function() {
+  emojiPicker() {
     if(this.state.showEmojiPicker) {
       return (
         <EmojiPicker
-          style={emojiPickerStyles} onSelect={this.setEmoji}
+          style={emojiPickerStyles}
+          onSelect={this.setEmoji}
         />
-    );
+      );
     }
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div ref="emoji" className='emoji-picker-container'>
-        <i onClick={this.toggleEmojiPicker} className="fa fa-smile-o fa-lg" aria-hidden="true"></i>
+        <i
+          onClick={this.toggleEmojiPicker}
+          className="fa fa-smile-o fa-lg"
+          aria-hidden="true">
+        </i>
         <div className='emoji-picker'>{this.emojiPicker()}</div>
       </div>
     );
   }
-});
+}
 
 export default EmojiInput;

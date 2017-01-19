@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import ChatElements from './chat_elements';
-import { createMessage, updateMessage, deleteMessage } from '../../../actions/message_actions';
+import {
+  createMessage,
+  updateMessage,
+  deleteMessage
+} from '../../../actions/message_actions';
 import { getChannelMessages } from '../../../reducers/selectors';
 
 const mapStateToProps = state => ({
