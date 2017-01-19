@@ -22,7 +22,10 @@ class Sidebar extends React.Component {
   }
 
   toggleModal(modalType) {
-    this.setState({ openModal: !this.state.openModal, modalType });
+    this.props.fetchUsers()
+      .then(() => this.setState(
+        { openModal: !this.state.openModal, modalType }
+      ));
   }
 
   joinChannel(id) {
