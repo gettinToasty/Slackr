@@ -58,6 +58,7 @@ class Sidebar extends React.Component {
         return <UserList
           users={this.props.users}
           createDm={this.props.createDm}
+          updateChannel={this.props.updateChannel}
           fetchDms={this.props.fetchDms}
           toggleModal={() => this.toggleModal(this.state.modalType)} />;
       }
@@ -77,18 +78,22 @@ class Sidebar extends React.Component {
         <ChannelDetail
           curChannel={this.props.curChannel}
           currentUser={this.props.currentUser} />
-
-        <h3 onClick={() => this.toggleModal('channelList')}>
-          Channels ({this.props.allChannels.length})
-        </h3>
+        <div onClick={() => this.toggleModal('channelList')} className='group'>
+          <h3>
+            Channels ({this.props.allChannels.length})
+          </h3>
+          <i className="fa fa-plus-square" aria-hidden="true"></i>
+        </div>
         <ChannelIndex
           userChannels={this.props.userChannels}
           updateChannel={this.props.updateChannel}
           leaveChannel={this.leaveChannel} />
-
-        <h3 onClick={() => this.toggleModal('dmList')}>
-          Direct Messages
-        </h3>
+        <div onClick={() => this.toggleModal('dmList')} className='group'>
+          <h3>
+            Direct Messages
+          </h3>
+          <i className="fa fa-plus-square" aria-hidden="true"></i>
+        </div>
         <UserIndex
           userMessages={this.props.userMessages}
           updateChannel={this.props.updateChannel}

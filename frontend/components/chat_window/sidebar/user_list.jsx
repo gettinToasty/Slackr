@@ -32,6 +32,7 @@ class UserList extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createDm(this.state.formUsers)
+      .then(resp => this.props.updateChannel(resp.dm.id, resp.dm.type))
       .then(this.props.fetchDms)
       .then(this.props.toggleModal);
   }
