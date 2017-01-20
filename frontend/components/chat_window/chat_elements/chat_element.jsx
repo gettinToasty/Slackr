@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactEmoji from 'react-emoji';
 
+const spicyboys = ":fire: S :ant: P :fire: I :ant: C :fire: Y :ant: B :fire: O :ant: Y :fire: S :ant:";
+
 const parseBody = body => {
 
   let giphyMatch = body.match(/GIPHY_DATA (.+) _ (.+) _ (.+)/);
   let linkMatch = body.match(/^((https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?)(.*)$/);
+  let spicyMatch = body.match(/^\/spicyboys$/);
   if(giphyMatch) {
     return (
       <div className='giphy'>
@@ -22,6 +25,8 @@ const parseBody = body => {
         </a>
       </div>
     );
+  } else if(spicyMatch) {
+    return <p>{ReactEmoji.emojify(spicyboys)}</p>;
   } else {
     return <p>{ReactEmoji.emojify(body)}</p>;
   }
