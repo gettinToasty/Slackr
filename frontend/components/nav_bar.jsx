@@ -4,9 +4,14 @@ import { Link, hashHistory } from 'react-router';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { dropdown: false };
+    this.state = { dropdown: false, lastChanId: null };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
+  }
+
+  componentWillUpdate() {
+    this.props.fetchChannels();
   }
 
   handleLogout(e) {
@@ -17,6 +22,17 @@ class NavBar extends React.Component {
 
   handleDrop() {
     this.setState({ dropdown: !this.state.dropdown });
+  }
+
+  updateSearch(e) {
+    if(this.props.curChannel.id !== 0) {
+      this.setState({ lastChanId: this.props.curChannel.id });
+    }
+    if(e.target.value === "") {
+      this.props.fetchChannel(this.state.lastChanId, 'Channel');
+    } else {
+      this.props.searchMessages(e.target.value);
+    }
   }
 
 
@@ -56,7 +72,7 @@ class NavBar extends React.Component {
         content = (
           <label>
             <i className="fa fa-search" aria-hidden="true"></i>
-            <input type='text' />
+            <input type='text' onChange={this.updateSearch} />
           </label>
         );
       }

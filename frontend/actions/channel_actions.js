@@ -1,5 +1,6 @@
 import * as ChannelUtil from '../util/channel_api_util';
 import * as DmUtil from '../util/dm_api_util';
+import * as MessageUtil from '../util/message_api_util';
 
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
@@ -40,4 +41,9 @@ export const joinChannel = channelJoin => dispatch => (
 
 export const leaveChannel = id => dispatch => (
   ChannelUtil.leaveChannel(id)
+);
+
+export const searchMessages = query => dispatch => (
+  MessageUtil.searchMessages(query)
+    .then(resp => dispatch(receiveChannel(resp)))
 );

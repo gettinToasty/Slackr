@@ -34,6 +34,19 @@ class Api::MessagesController < ApplicationController
     render :show
   end
 
+  def search
+    channels = current_user.channels.map(&:id)
+    dms = current_user.direct_messages.map(&:id)
+    @messages = Message.where('body ILIKE (?)', "%#{params[:query]}%")
+      .reject do |message|
+        message.postable_type == 'Channel' && !channels.include?(message.postable_id)
+      end
+      .reject do |message|
+        message.postable_type == 'DirectMessage' && !dms.include?(message.postable_id)
+      end
+    render :search
+  end
+
   private
 
   def message_params

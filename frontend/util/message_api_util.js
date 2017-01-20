@@ -38,3 +38,11 @@ export const getGiphy = query => (
     url: `https://api.giphy.com/v1/gifs/translate?s=${query}&rating=pg-13&api_key=dc6zaTOxFJmzC`
   })
 );
+
+export const searchMessages = query => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/messages_search',
+    data: { query }
+  })
+);
