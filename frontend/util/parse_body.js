@@ -35,33 +35,33 @@ const parseBody = body => {
   } else if(kanyeMatch) {
     return (
       <div>
-        <span>{kanyeMatch[1]}</span>
+        <span>{ReactEmoji.emojify(kanyeMatch[1])}</span>
         <div className="icon icon-kanye"></div>
-        <span>{kanyeMatch[2]}</span>
+        <span>{ReactEmoji.emojify(kanyeMatch[2])}</span>
       </div>
     );
   } else if(saltMatch) {
     return (
       <div>
-        <span>{saltMatch[1]}</span>
+        <span>{ReactEmoji.emojify(saltMatch[1])}</span>
         <div className="icon icon-salt"></div>
-        <span>{saltMatch[2]}</span>
+        <span>{ReactEmoji.emojify(saltMatch[2])}</span>
       </div>
     );
   } else if(kappaMatch) {
     return (
       <div>
-        <span>{kappaMatch[1]}</span>
+        <span>{ReactEmoji.emojify(kappaMatch[1])}</span>
         <div className="icon icon-kappa"></div>
-        <span>{kappaMatch[2]}</span>
+        <span>{ReactEmoji.emojify(kappaMatch[2])}</span>
       </div>
     );
   } else if(pogMatch) {
     return (
       <div>
-        <span>{pogMatch[1]}</span>
+        <span>{ReactEmoji.emojify(pogMatch[1])}</span>
         <div className="icon icon-pogchamp"></div>
-        <span>{pogMatch[2]}</span>
+        <span>{ReactEmoji.emojify(pogMatch[2])}</span>
       </div>
     );
   } else if(spicyMatch) {
