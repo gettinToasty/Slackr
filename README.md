@@ -1,13 +1,15 @@
 # \*slackr
 
-[\*slackr](https://www.slackr.us) is a team messaging app for teams who want to do anything but work. It is built on a Rails backend using React and Redux to handle dynamic frontend rendering.
+[\*slackr](https://www.slackr.space) is a team messaging app for teams who want to do anything but work. It is built on a Rails backend using React and Redux to handle dynamic frontend rendering.
 
 ## Features and Implementation
 
-### Demo Account
+### Secure User Authentication
 ![*slackr Splash Page](docs/screenshots/login.png)
 
-New visitors can easily preview all of \*slackr's functionality without signing up for their own account. Clicking on the Demo button logs a visitor in to a built-in Guest account, leading them to the tutorial channel.
+Users who sign up for \*slackr can be assured that their passwords are protected, with passwords being stored a hashed digest using Rail's BCrypt gem, which is based on the Blowfish cipher, a cipher which to date has no effective cryptanalysis. It incorporates a salt to protect against rainbow table attacks and has a base iteration of ten rounds of hashing to protect against brute force measures.
+
+New visitors can easily preview all of \*slackr's functionality without signing up for their own account. Clicking on the Demo button logs a visitor in to a built-in Guest account, leading them to the tutorial channel. Guest data is cleared every 24 hours, so if users want their data to persist they should sign up for an actual account.
 
 ### Live Chat
 ![An example of a *slackr chatrooom](docs/screenshots/messaging.png)
@@ -70,6 +72,8 @@ if(linkMatch) {
 \*slackr is a true single page application with minimal routing to ensure a clean and intuitive user experience. Users will never have to manually enter a URL, and after a user logs in they stay on the same page for the entire duration of their session. This is accomplished using React's virtual DOM which only updates components that have changed based on data in Rails' database.
 
 ## Future Development
+
+\*slackr is at its base still a MVP application. Here are a few previews of what to expect in future builds of \*slackr:
 
 ### Notifications
 

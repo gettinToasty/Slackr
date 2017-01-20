@@ -31,7 +31,6 @@ const addSocket = (channelName, dispatch) => {
   });
 };
 
-
 const setSocket = (channelName, dispatch) => {
   if (window.App.channel) {
     removeSocket();
