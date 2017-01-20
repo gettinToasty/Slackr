@@ -5,10 +5,13 @@ export default ({userMessages, updateChannel, currentUser, leaveDm}) => {
     <ul>
       {userMessages.map(dm => {
         let rgx;
+        let title = dm.title;
         if(currentUser) {
-          rgx = new RegExp(`${currentUser.username},?\\s?`);
+          title = title
+            .split(', ')
+            .filter(name => name !== currentUser.username)
+            .join(', ');
         }
-        let title = dm.title.replace(rgx, '');
         let dots = title.length > 16 ? '...' : '';
         return (
           <li key={dm.id} onClick={() => updateChannel(dm.id, 'DirectMessage')}>
