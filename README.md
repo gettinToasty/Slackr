@@ -71,6 +71,10 @@ if(linkMatch) {
 
 \*slackr is a true single page application with minimal routing to ensure a clean and intuitive user experience. Users will never have to manually enter a URL, and after a user logs in they stay on the same page for the entire duration of their session. This is accomplished using React's virtual DOM which only updates components that have changed based on data in Rails' database.
 
+### Easter Eggs!
+
+Like any good app, \*slackr has a few secrets to share, for those inclined to find them ;)
+
 ## Future Development
 
 \*slackr is at its base still a MVP application. Here are a few previews of what to expect in future builds of \*slackr:
