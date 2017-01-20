@@ -1,0 +1,28 @@
+
+.icon {
+  background-image: asset_url('sprite.png');
+  display: inline-block;
+  position: relative;
+  top: 10px;
+}
+
+.icon-kanye {
+  background-position: -0px -0px;
+  width: 34px;
+  height: 34px;
+}
+.icon-salt {
+  background-position: -0px -34px;
+  width: 44px;
+  height: 35px;
+}
+.icon-pogchamp {
+  background-position: -0px -69px;
+  width: 31px;
+  height: 38px;
+}
+.icon-kappa {
+  background-position: -0px -107px;
+  width: 38px;
+  height: 44px;
+}
