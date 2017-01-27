@@ -20,6 +20,8 @@
   padding: 16px;
   border-bottom: 1px solid $transparent-dark-purple;
   margin-bottom: 8px;
+  word-wrap: break-word;
+  white-space: normal;
 
   h4{
     color: $darker-purple;
