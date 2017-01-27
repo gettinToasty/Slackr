@@ -1,6 +1,6 @@
 # \*slackr
 
-[\*slackr](https://www.slackr.space) is a team messaging app for teams who want to do anything but work. It is built on a Rails backend using React and Redux to handle dynamic frontend rendering.
+[\*slackr](http://www.slackr.space) is a team messaging app for teams who want to do anything but work. It is built on a Rails backend using React and Redux to handle dynamic frontend rendering.
 
 ## Features and Implementation
 
