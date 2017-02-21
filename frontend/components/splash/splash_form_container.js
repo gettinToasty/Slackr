@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { login, signup } from '../../actions/session_actions';
+import { login, signup, clearErrors } from '../../actions/session_actions';
 import SplashForm from './splash_form';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -16,8 +16,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
   return {
     guestLogin: user => dispatch(login(user)),
+    clearErrors: () => dispatch(clearErrors()),
     formType,
-    processForm };
+    processForm
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SplashForm);

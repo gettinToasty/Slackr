@@ -10,8 +10,6 @@ import { fetchChannels, fetchChannel } from '../actions/channel_actions';
 import { fetchDms } from '../actions/dm_actions';
 import { receiveMessage } from '../actions/message_actions.js';
 
-
-
 export default ({ store }) => {
 
   const _redirectIfLoggedIn = (nextState, replace) => {

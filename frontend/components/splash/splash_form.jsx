@@ -17,6 +17,12 @@ class SplashForm extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.formType !== nextProps.formType) {
+      this.props.clearErrors();
+    }
+  }
+
   updateAttr(type, e) {
     this.setState({ [type]: e.target.value });
   }

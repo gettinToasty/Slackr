@@ -2,7 +2,8 @@ import { merge } from 'lodash';
 
 import {
   RECEIVE_CURRENT_USER,
-  RECEIVE_ERRORS
+  RECEIVE_ERRORS,
+  CLEAR_ERRORS
 } from '../actions/session_actions';
 
 const defaultState = {
@@ -17,6 +18,8 @@ export default (state = defaultState, action) => {
       return merge({}, state, {currentUser: action.user});
     case RECEIVE_ERRORS:
       return { currentUser: state.currentUser, errors: action.errors};
+    case CLEAR_ERRORS:
+      return { currentUser: state.currentUser, errors: [] };
     default:
       return state;
   }
