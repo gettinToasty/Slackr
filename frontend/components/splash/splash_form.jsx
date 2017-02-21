@@ -61,13 +61,18 @@ class SplashForm extends React.Component {
         }
     );
 
-    const renderErrors = () => (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={i}>{error}</li>
-        ))}
-      </ul>
-    );
+    const renderErrors = () => {
+      let errors = this.props.errors || [];
+      return (
+        <ul>
+          {errors.map((error, i) => (
+            <li key={i}>{error}</li>
+          ))}
+        </ul>
+      );
+    };
+
+
 
     return (
       <div className='splash-bg'>

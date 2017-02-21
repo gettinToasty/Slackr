@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -8,6 +8,7 @@ class NavBar extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
+    this.redirect = this.redirect.bind(this);
   }
 
   componentWillUpdate() {
@@ -17,7 +18,11 @@ class NavBar extends React.Component {
   handleLogout(e) {
     e.preventDefault();
     this.props.logout()
-      .then(() => hashHistory.push('/login'));
+      .then(this.redirect);
+  }
+
+  redirect() {
+    this.props.router.push('/login');
   }
 
   handleDrop() {
@@ -94,4 +99,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);
